@@ -1,0 +1,1076 @@
+country,subnational1,threshold,driver,year,tc_loss_ha
+Greece,Aegean,30,Hard commodities,2001,3
+Greece,Aegean,30,Logging,2001,47
+Greece,Aegean,30,Permanent agriculture,2001,4
+Greece,Aegean,30,Settlements & Infrastructure,2001,14
+Greece,Aegean,30,Wildfire,2001,418
+Greece,Aegean,30,Hard commodities,2002,16
+Greece,Aegean,30,Logging,2002,65
+Greece,Aegean,30,Permanent agriculture,2002,25
+Greece,Aegean,30,Settlements & Infrastructure,2002,24
+Greece,Aegean,30,Wildfire,2002,256
+Greece,Aegean,30,Hard commodities,2003,8
+Greece,Aegean,30,Logging,2003,22
+Greece,Aegean,30,Permanent agriculture,2003,19
+Greece,Aegean,30,Settlements & Infrastructure,2003,23
+Greece,Aegean,30,Wildfire,2003,302
+Greece,Aegean,30,Hard commodities,2004,11
+Greece,Aegean,30,Logging,2004,17
+Greece,Aegean,30,Permanent agriculture,2004,7
+Greece,Aegean,30,Settlements & Infrastructure,2004,8
+Greece,Aegean,30,Wildfire,2004,351
+Greece,Aegean,30,Hard commodities,2005,6
+Greece,Aegean,30,Logging,2005,10
+Greece,Aegean,30,Permanent agriculture,2005,18
+Greece,Aegean,30,Settlements & Infrastructure,2005,16
+Greece,Aegean,30,Wildfire,2005,316
+Greece,Aegean,30,Hard commodities,2006,4
+Greece,Aegean,30,Logging,2006,13
+Greece,Aegean,30,Permanent agriculture,2006,31
+Greece,Aegean,30,Settlements & Infrastructure,2006,17
+Greece,Aegean,30,Wildfire,2006,186
+Greece,Aegean,30,Hard commodities,2007,4
+Greece,Aegean,30,Logging,2007,10
+Greece,Aegean,30,Permanent agriculture,2007,32
+Greece,Aegean,30,Settlements & Infrastructure,2007,26
+Greece,Aegean,30,Wildfire,2007,393
+Greece,Aegean,30,Hard commodities,2008,4
+Greece,Aegean,30,Logging,2008,24
+Greece,Aegean,30,Permanent agriculture,2008,20
+Greece,Aegean,30,Settlements & Infrastructure,2008,54
+Greece,Aegean,30,Wildfire,2008,5118
+Greece,Aegean,30,Hard commodities,2009,4
+Greece,Aegean,30,Logging,2009,62
+Greece,Aegean,30,Permanent agriculture,2009,16
+Greece,Aegean,30,Settlements & Infrastructure,2009,31
+Greece,Aegean,30,Wildfire,2009,958
+Greece,Aegean,30,Hard commodities,2010,2
+Greece,Aegean,30,Logging,2010,26
+Greece,Aegean,30,Permanent agriculture,2010,13
+Greece,Aegean,30,Settlements & Infrastructure,2010,19
+Greece,Aegean,30,Wildfire,2010,291
+Greece,Aegean,30,Hard commodities,2011,2
+Greece,Aegean,30,Logging,2011,9
+Greece,Aegean,30,Permanent agriculture,2011,20
+Greece,Aegean,30,Settlements & Infrastructure,2011,10
+Greece,Aegean,30,Wildfire,2011,281
+Greece,Aegean,30,Hard commodities,2012,1
+Greece,Aegean,30,Logging,2012,17
+Greece,Aegean,30,Permanent agriculture,2012,8
+Greece,Aegean,30,Settlements & Infrastructure,2012,10
+Greece,Aegean,30,Wildfire,2012,1175
+Greece,Aegean,30,Hard commodities,2013,0
+Greece,Aegean,30,Logging,2013,14
+Greece,Aegean,30,Permanent agriculture,2013,12
+Greece,Aegean,30,Settlements & Infrastructure,2013,5
+Greece,Aegean,30,Wildfire,2013,2132
+Greece,Aegean,30,Hard commodities,2014,0
+Greece,Aegean,30,Logging,2014,12
+Greece,Aegean,30,Permanent agriculture,2014,21
+Greece,Aegean,30,Settlements & Infrastructure,2014,6
+Greece,Aegean,30,Wildfire,2014,178
+Greece,Aegean,30,Hard commodities,2015,1
+Greece,Aegean,30,Logging,2015,19
+Greece,Aegean,30,Permanent agriculture,2015,24
+Greece,Aegean,30,Settlements & Infrastructure,2015,10
+Greece,Aegean,30,Wildfire,2015,198
+Greece,Aegean,30,Hard commodities,2016,1
+Greece,Aegean,30,Logging,2016,5
+Greece,Aegean,30,Permanent agriculture,2016,18
+Greece,Aegean,30,Settlements & Infrastructure,2016,6
+Greece,Aegean,30,Wildfire,2016,686
+Greece,Aegean,30,Hard commodities,2017,0
+Greece,Aegean,30,Logging,2017,28
+Greece,Aegean,30,Permanent agriculture,2017,22
+Greece,Aegean,30,Settlements & Infrastructure,2017,14
+Greece,Aegean,30,Wildfire,2017,355
+Greece,Aegean,30,Hard commodities,2018,0
+Greece,Aegean,30,Logging,2018,19
+Greece,Aegean,30,Permanent agriculture,2018,12
+Greece,Aegean,30,Settlements & Infrastructure,2018,10
+Greece,Aegean,30,Wildfire,2018,83
+Greece,Aegean,30,Hard commodities,2019,3
+Greece,Aegean,30,Logging,2019,49
+Greece,Aegean,30,Permanent agriculture,2019,24
+Greece,Aegean,30,Settlements & Infrastructure,2019,26
+Greece,Aegean,30,Wildfire,2019,138
+Greece,Aegean,30,Hard commodities,2020,0
+Greece,Aegean,30,Logging,2020,12
+Greece,Aegean,30,Permanent agriculture,2020,14
+Greece,Aegean,30,Settlements & Infrastructure,2020,12
+Greece,Aegean,30,Wildfire,2020,60
+Greece,Aegean,30,Hard commodities,2021,2
+Greece,Aegean,30,Logging,2021,18
+Greece,Aegean,30,Permanent agriculture,2021,18
+Greece,Aegean,30,Settlements & Infrastructure,2021,12
+Greece,Aegean,30,Wildfire,2021,509
+Greece,Aegean,30,Logging,2022,21
+Greece,Aegean,30,Permanent agriculture,2022,15
+Greece,Aegean,30,Settlements & Infrastructure,2022,8
+Greece,Aegean,30,Wildfire,2022,860
+Greece,Aegean,30,Hard commodities,2023,0
+Greece,Aegean,30,Logging,2023,40
+Greece,Aegean,30,Permanent agriculture,2023,8
+Greece,Aegean,30,Settlements & Infrastructure,2023,12
+Greece,Aegean,30,Wildfire,2023,2588
+Greece,Aegean,30,Hard commodities,2024,8
+Greece,Aegean,30,Logging,2024,29
+Greece,Aegean,30,Permanent agriculture,2024,9
+Greece,Aegean,30,Settlements & Infrastructure,2024,25
+Greece,Aegean,30,Wildfire,2024,607
+Greece,Aegean,30,Hard commodities,2025,9
+Greece,Aegean,30,Logging,2025,39
+Greece,Aegean,30,Permanent agriculture,2025,11
+Greece,Aegean,30,Settlements & Infrastructure,2025,35
+Greece,Aegean,30,Wildfire,2025,1176
+Greece,Athos,30,Logging,2001,18
+Greece,Athos,30,Permanent agriculture,2001,1
+Greece,Athos,30,Settlements & Infrastructure,2001,17
+Greece,Athos,30,Wildfire,2001,0
+Greece,Athos,30,Logging,2002,26
+Greece,Athos,30,Other natural disturbances,2002,0
+Greece,Athos,30,Permanent agriculture,2002,6
+Greece,Athos,30,Settlements & Infrastructure,2002,16
+Greece,Athos,30,Wildfire,2002,35
+Greece,Athos,30,Logging,2003,11
+Greece,Athos,30,Permanent agriculture,2003,1
+Greece,Athos,30,Settlements & Infrastructure,2003,8
+Greece,Athos,30,Wildfire,2003,0
+Greece,Athos,30,Logging,2004,30
+Greece,Athos,30,Other natural disturbances,2004,0
+Greece,Athos,30,Permanent agriculture,2004,9
+Greece,Athos,30,Settlements & Infrastructure,2004,31
+Greece,Athos,30,Wildfire,2004,8
+Greece,Athos,30,Logging,2005,34
+Greece,Athos,30,Other natural disturbances,2005,0
+Greece,Athos,30,Permanent agriculture,2005,6
+Greece,Athos,30,Settlements & Infrastructure,2005,20
+Greece,Athos,30,Wildfire,2005,32
+Greece,Athos,30,Logging,2006,29
+Greece,Athos,30,Other natural disturbances,2006,0
+Greece,Athos,30,Permanent agriculture,2006,2
+Greece,Athos,30,Settlements & Infrastructure,2006,34
+Greece,Athos,30,Wildfire,2006,2
+Greece,Athos,30,Logging,2007,37
+Greece,Athos,30,Other natural disturbances,2007,0
+Greece,Athos,30,Permanent agriculture,2007,4
+Greece,Athos,30,Settlements & Infrastructure,2007,29
+Greece,Athos,30,Wildfire,2007,2
+Greece,Athos,30,Logging,2008,34
+Greece,Athos,30,Permanent agriculture,2008,2
+Greece,Athos,30,Settlements & Infrastructure,2008,35
+Greece,Athos,30,Wildfire,2008,7
+Greece,Athos,30,Logging,2009,50
+Greece,Athos,30,Other natural disturbances,2009,0
+Greece,Athos,30,Permanent agriculture,2009,5
+Greece,Athos,30,Settlements & Infrastructure,2009,28
+Greece,Athos,30,Wildfire,2009,27
+Greece,Athos,30,Logging,2010,38
+Greece,Athos,30,Permanent agriculture,2010,7
+Greece,Athos,30,Settlements & Infrastructure,2010,27
+Greece,Athos,30,Wildfire,2010,1
+Greece,Athos,30,Logging,2011,34
+Greece,Athos,30,Permanent agriculture,2011,28
+Greece,Athos,30,Settlements & Infrastructure,2011,32
+Greece,Athos,30,Logging,2012,73
+Greece,Athos,30,Permanent agriculture,2012,13
+Greece,Athos,30,Settlements & Infrastructure,2012,30
+Greece,Athos,30,Wildfire,2012,2134
+Greece,Athos,30,Logging,2013,27
+Greece,Athos,30,Permanent agriculture,2013,4
+Greece,Athos,30,Settlements & Infrastructure,2013,32
+Greece,Athos,30,Wildfire,2013,468
+Greece,Athos,30,Logging,2014,59
+Greece,Athos,30,Other natural disturbances,2014,1
+Greece,Athos,30,Permanent agriculture,2014,8
+Greece,Athos,30,Settlements & Infrastructure,2014,63
+Greece,Athos,30,Wildfire,2014,30
+Greece,Athos,30,Logging,2015,49
+Greece,Athos,30,Permanent agriculture,2015,2
+Greece,Athos,30,Settlements & Infrastructure,2015,18
+Greece,Athos,30,Wildfire,2015,1
+Greece,Athos,30,Logging,2016,68
+Greece,Athos,30,Permanent agriculture,2016,17
+Greece,Athos,30,Settlements & Infrastructure,2016,18
+Greece,Athos,30,Wildfire,2016,3
+Greece,Athos,30,Logging,2017,63
+Greece,Athos,30,Permanent agriculture,2017,6
+Greece,Athos,30,Settlements & Infrastructure,2017,18
+Greece,Athos,30,Wildfire,2017,15
+Greece,Athos,30,Logging,2018,91
+Greece,Athos,30,Other natural disturbances,2018,1
+Greece,Athos,30,Permanent agriculture,2018,4
+Greece,Athos,30,Settlements & Infrastructure,2018,37
+Greece,Athos,30,Wildfire,2018,4
+Greece,Athos,30,Logging,2019,80
+Greece,Athos,30,Permanent agriculture,2019,2
+Greece,Athos,30,Settlements & Infrastructure,2019,32
+Greece,Athos,30,Wildfire,2019,4
+Greece,Athos,30,Logging,2020,54
+Greece,Athos,30,Other natural disturbances,2020,0
+Greece,Athos,30,Permanent agriculture,2020,1
+Greece,Athos,30,Settlements & Infrastructure,2020,31
+Greece,Athos,30,Wildfire,2020,30
+Greece,Athos,30,Logging,2021,52
+Greece,Athos,30,Other natural disturbances,2021,2
+Greece,Athos,30,Permanent agriculture,2021,0
+Greece,Athos,30,Settlements & Infrastructure,2021,43
+Greece,Athos,30,Wildfire,2021,7
+Greece,Athos,30,Logging,2022,54
+Greece,Athos,30,Other natural disturbances,2022,0
+Greece,Athos,30,Permanent agriculture,2022,0
+Greece,Athos,30,Settlements & Infrastructure,2022,34
+Greece,Athos,30,Wildfire,2022,34
+Greece,Athos,30,Logging,2023,65
+Greece,Athos,30,Permanent agriculture,2023,1
+Greece,Athos,30,Settlements & Infrastructure,2023,35
+Greece,Athos,30,Wildfire,2023,2
+Greece,Athos,30,Logging,2024,62
+Greece,Athos,30,Permanent agriculture,2024,1
+Greece,Athos,30,Settlements & Infrastructure,2024,21
+Greece,Athos,30,Wildfire,2024,2
+Greece,Athos,30,Logging,2025,78
+Greece,Athos,30,Other natural disturbances,2025,1
+Greece,Athos,30,Permanent agriculture,2025,6
+Greece,Athos,30,Settlements & Infrastructure,2025,34
+Greece,Athos,30,Wildfire,2025,2
+Greece,Attica,30,Hard commodities,2001,5
+Greece,Attica,30,Logging,2001,1
+Greece,Attica,30,Permanent agriculture,2001,5
+Greece,Attica,30,Settlements & Infrastructure,2001,7
+Greece,Attica,30,Wildfire,2001,512
+Greece,Attica,30,Hard commodities,2002,8
+Greece,Attica,30,Logging,2002,1
+Greece,Attica,30,Permanent agriculture,2002,7
+Greece,Attica,30,Settlements & Infrastructure,2002,38
+Greece,Attica,30,Wildfire,2002,152
+Greece,Attica,30,Hard commodities,2003,6
+Greece,Attica,30,Logging,2003,1
+Greece,Attica,30,Permanent agriculture,2003,5
+Greece,Attica,30,Settlements & Infrastructure,2003,11
+Greece,Attica,30,Wildfire,2003,22
+Greece,Attica,30,Hard commodities,2004,6
+Greece,Attica,30,Logging,2004,8
+Greece,Attica,30,Permanent agriculture,2004,3
+Greece,Attica,30,Settlements & Infrastructure,2004,33
+Greece,Attica,30,Wildfire,2004,120
+Greece,Attica,30,Logging,2005,1
+Greece,Attica,30,Permanent agriculture,2005,4
+Greece,Attica,30,Settlements & Infrastructure,2005,24
+Greece,Attica,30,Wildfire,2005,106
+Greece,Attica,30,Hard commodities,2006,0
+Greece,Attica,30,Logging,2006,9
+Greece,Attica,30,Permanent agriculture,2006,6
+Greece,Attica,30,Settlements & Infrastructure,2006,37
+Greece,Attica,30,Wildfire,2006,159
+Greece,Attica,30,Hard commodities,2007,8
+Greece,Attica,30,Logging,2007,4
+Greece,Attica,30,Permanent agriculture,2007,6
+Greece,Attica,30,Settlements & Infrastructure,2007,14
+Greece,Attica,30,Wildfire,2007,2724
+Greece,Attica,30,Hard commodities,2008,1
+Greece,Attica,30,Logging,2008,11
+Greece,Attica,30,Permanent agriculture,2008,13
+Greece,Attica,30,Settlements & Infrastructure,2008,8
+Greece,Attica,30,Wildfire,2008,843
+Greece,Attica,30,Hard commodities,2009,1
+Greece,Attica,30,Logging,2009,5
+Greece,Attica,30,Permanent agriculture,2009,10
+Greece,Attica,30,Settlements & Infrastructure,2009,8
+Greece,Attica,30,Wildfire,2009,252
+Greece,Attica,30,Logging,2010,15
+Greece,Attica,30,Permanent agriculture,2010,7
+Greece,Attica,30,Settlements & Infrastructure,2010,27
+Greece,Attica,30,Wildfire,2010,1707
+Greece,Attica,30,Hard commodities,2011,0
+Greece,Attica,30,Logging,2011,7
+Greece,Attica,30,Permanent agriculture,2011,9
+Greece,Attica,30,Settlements & Infrastructure,2011,12
+Greece,Attica,30,Wildfire,2011,158
+Greece,Attica,30,Hard commodities,2012,0
+Greece,Attica,30,Logging,2012,1
+Greece,Attica,30,Permanent agriculture,2012,10
+Greece,Attica,30,Settlements & Infrastructure,2012,11
+Greece,Attica,30,Wildfire,2012,490
+Greece,Attica,30,Logging,2013,0
+Greece,Attica,30,Permanent agriculture,2013,4
+Greece,Attica,30,Settlements & Infrastructure,2013,1
+Greece,Attica,30,Wildfire,2013,156
+Greece,Attica,30,Permanent agriculture,2014,1
+Greece,Attica,30,Settlements & Infrastructure,2014,1
+Greece,Attica,30,Wildfire,2014,96
+Greece,Attica,30,Logging,2015,0
+Greece,Attica,30,Permanent agriculture,2015,1
+Greece,Attica,30,Settlements & Infrastructure,2015,1
+Greece,Attica,30,Wildfire,2015,81
+Greece,Attica,30,Logging,2016,2
+Greece,Attica,30,Permanent agriculture,2016,3
+Greece,Attica,30,Settlements & Infrastructure,2016,0
+Greece,Attica,30,Wildfire,2016,109
+Greece,Attica,30,Permanent agriculture,2017,4
+Greece,Attica,30,Settlements & Infrastructure,2017,0
+Greece,Attica,30,Wildfire,2017,1423
+Greece,Attica,30,Logging,2018,1
+Greece,Attica,30,Permanent agriculture,2018,5
+Greece,Attica,30,Settlements & Infrastructure,2018,28
+Greece,Attica,30,Wildfire,2018,1741
+Greece,Attica,30,Hard commodities,2019,0
+Greece,Attica,30,Logging,2019,2
+Greece,Attica,30,Permanent agriculture,2019,3
+Greece,Attica,30,Settlements & Infrastructure,2019,22
+Greece,Attica,30,Wildfire,2019,325
+Greece,Attica,30,Hard commodities,2020,9
+Greece,Attica,30,Logging,2020,7
+Greece,Attica,30,Permanent agriculture,2020,2
+Greece,Attica,30,Settlements & Infrastructure,2020,3
+Greece,Attica,30,Wildfire,2020,88
+Greece,Attica,30,Hard commodities,2021,1
+Greece,Attica,30,Logging,2021,2
+Greece,Attica,30,Permanent agriculture,2021,2
+Greece,Attica,30,Settlements & Infrastructure,2021,11
+Greece,Attica,30,Wildfire,2021,8626
+Greece,Attica,30,Hard commodities,2022,1
+Greece,Attica,30,Logging,2022,25
+Greece,Attica,30,Permanent agriculture,2022,3
+Greece,Attica,30,Settlements & Infrastructure,2022,6
+Greece,Attica,30,Wildfire,2022,981
+Greece,Attica,30,Hard commodities,2023,4
+Greece,Attica,30,Logging,2023,5
+Greece,Attica,30,Permanent agriculture,2023,1
+Greece,Attica,30,Settlements & Infrastructure,2023,6
+Greece,Attica,30,Wildfire,2023,2189
+Greece,Attica,30,Hard commodities,2024,1
+Greece,Attica,30,Logging,2024,13
+Greece,Attica,30,Permanent agriculture,2024,1
+Greece,Attica,30,Settlements & Infrastructure,2024,6
+Greece,Attica,30,Wildfire,2024,926
+Greece,Attica,30,Hard commodities,2025,0
+Greece,Attica,30,Logging,2025,31
+Greece,Attica,30,Permanent agriculture,2025,4
+Greece,Attica,30,Settlements & Infrastructure,2025,22
+Greece,Attica,30,Wildfire,2025,798
+Greece,Crete,30,Hard commodities,2001,1
+Greece,Crete,30,Logging,2001,7
+Greece,Crete,30,Permanent agriculture,2001,39
+Greece,Crete,30,Settlements & Infrastructure,2001,2
+Greece,Crete,30,Wildfire,2001,40
+Greece,Crete,30,Hard commodities,2002,0
+Greece,Crete,30,Logging,2002,2
+Greece,Crete,30,Permanent agriculture,2002,60
+Greece,Crete,30,Settlements & Infrastructure,2002,6
+Greece,Crete,30,Wildfire,2002,26
+Greece,Crete,30,Hard commodities,2003,2
+Greece,Crete,30,Logging,2003,18
+Greece,Crete,30,Permanent agriculture,2003,104
+Greece,Crete,30,Settlements & Infrastructure,2003,9
+Greece,Crete,30,Wildfire,2003,101
+Greece,Crete,30,Hard commodities,2004,4
+Greece,Crete,30,Logging,2004,26
+Greece,Crete,30,Permanent agriculture,2004,122
+Greece,Crete,30,Settlements & Infrastructure,2004,11
+Greece,Crete,30,Wildfire,2004,66
+Greece,Crete,30,Hard commodities,2005,12
+Greece,Crete,30,Logging,2005,14
+Greece,Crete,30,Permanent agriculture,2005,122
+Greece,Crete,30,Settlements & Infrastructure,2005,10
+Greece,Crete,30,Wildfire,2005,74
+Greece,Crete,30,Hard commodities,2006,73
+Greece,Crete,30,Logging,2006,9
+Greece,Crete,30,Permanent agriculture,2006,124
+Greece,Crete,30,Settlements & Infrastructure,2006,21
+Greece,Crete,30,Wildfire,2006,70
+Greece,Crete,30,Hard commodities,2007,28
+Greece,Crete,30,Logging,2007,8
+Greece,Crete,30,Permanent agriculture,2007,78
+Greece,Crete,30,Settlements & Infrastructure,2007,14
+Greece,Crete,30,Wildfire,2007,78
+Greece,Crete,30,Hard commodities,2008,20
+Greece,Crete,30,Logging,2008,15
+Greece,Crete,30,Permanent agriculture,2008,139
+Greece,Crete,30,Settlements & Infrastructure,2008,22
+Greece,Crete,30,Wildfire,2008,257
+Greece,Crete,30,Hard commodities,2009,5
+Greece,Crete,30,Logging,2009,6
+Greece,Crete,30,Permanent agriculture,2009,74
+Greece,Crete,30,Settlements & Infrastructure,2009,11
+Greece,Crete,30,Wildfire,2009,94
+Greece,Crete,30,Hard commodities,2010,2
+Greece,Crete,30,Logging,2010,3
+Greece,Crete,30,Permanent agriculture,2010,90
+Greece,Crete,30,Settlements & Infrastructure,2010,6
+Greece,Crete,30,Wildfire,2010,46
+Greece,Crete,30,Hard commodities,2011,9
+Greece,Crete,30,Logging,2011,4
+Greece,Crete,30,Permanent agriculture,2011,103
+Greece,Crete,30,Settlements & Infrastructure,2011,8
+Greece,Crete,30,Wildfire,2011,35
+Greece,Crete,30,Hard commodities,2012,14
+Greece,Crete,30,Logging,2012,9
+Greece,Crete,30,Permanent agriculture,2012,67
+Greece,Crete,30,Settlements & Infrastructure,2012,4
+Greece,Crete,30,Wildfire,2012,69
+Greece,Crete,30,Hard commodities,2013,1
+Greece,Crete,30,Logging,2013,7
+Greece,Crete,30,Permanent agriculture,2013,62
+Greece,Crete,30,Settlements & Infrastructure,2013,2
+Greece,Crete,30,Wildfire,2013,101
+Greece,Crete,30,Hard commodities,2014,1
+Greece,Crete,30,Logging,2014,1
+Greece,Crete,30,Permanent agriculture,2014,30
+Greece,Crete,30,Settlements & Infrastructure,2014,4
+Greece,Crete,30,Wildfire,2014,33
+Greece,Crete,30,Hard commodities,2015,0
+Greece,Crete,30,Logging,2015,2
+Greece,Crete,30,Permanent agriculture,2015,52
+Greece,Crete,30,Settlements & Infrastructure,2015,9
+Greece,Crete,30,Wildfire,2015,24
+Greece,Crete,30,Hard commodities,2016,1
+Greece,Crete,30,Logging,2016,16
+Greece,Crete,30,Permanent agriculture,2016,62
+Greece,Crete,30,Settlements & Infrastructure,2016,5
+Greece,Crete,30,Wildfire,2016,102
+Greece,Crete,30,Hard commodities,2017,1
+Greece,Crete,30,Logging,2017,5
+Greece,Crete,30,Permanent agriculture,2017,58
+Greece,Crete,30,Settlements & Infrastructure,2017,5
+Greece,Crete,30,Wildfire,2017,56
+Greece,Crete,30,Hard commodities,2018,1
+Greece,Crete,30,Logging,2018,6
+Greece,Crete,30,Permanent agriculture,2018,78
+Greece,Crete,30,Settlements & Infrastructure,2018,9
+Greece,Crete,30,Wildfire,2018,197
+Greece,Crete,30,Hard commodities,2019,0
+Greece,Crete,30,Logging,2019,7
+Greece,Crete,30,Permanent agriculture,2019,75
+Greece,Crete,30,Settlements & Infrastructure,2019,11
+Greece,Crete,30,Wildfire,2019,52
+Greece,Crete,30,Hard commodities,2020,2
+Greece,Crete,30,Logging,2020,6
+Greece,Crete,30,Permanent agriculture,2020,93
+Greece,Crete,30,Settlements & Infrastructure,2020,3
+Greece,Crete,30,Wildfire,2020,31
+Greece,Crete,30,Hard commodities,2021,4
+Greece,Crete,30,Logging,2021,7
+Greece,Crete,30,Permanent agriculture,2021,72
+Greece,Crete,30,Settlements & Infrastructure,2021,7
+Greece,Crete,30,Wildfire,2021,35
+Greece,Crete,30,Hard commodities,2022,4
+Greece,Crete,30,Logging,2022,4
+Greece,Crete,30,Permanent agriculture,2022,57
+Greece,Crete,30,Settlements & Infrastructure,2022,5
+Greece,Crete,30,Wildfire,2022,11
+Greece,Crete,30,Hard commodities,2023,2
+Greece,Crete,30,Logging,2023,3
+Greece,Crete,30,Permanent agriculture,2023,70
+Greece,Crete,30,Settlements & Infrastructure,2023,10
+Greece,Crete,30,Wildfire,2023,8
+Greece,Crete,30,Hard commodities,2024,3
+Greece,Crete,30,Logging,2024,4
+Greece,Crete,30,Permanent agriculture,2024,56
+Greece,Crete,30,Settlements & Infrastructure,2024,10
+Greece,Crete,30,Wildfire,2024,24
+Greece,Crete,30,Hard commodities,2025,1
+Greece,Crete,30,Logging,2025,14
+Greece,Crete,30,Permanent agriculture,2025,58
+Greece,Crete,30,Settlements & Infrastructure,2025,12
+Greece,Crete,30,Wildfire,2025,151
+Greece,Epirus and Western Macedonia,30,Hard commodities,2001,14
+Greece,Epirus and Western Macedonia,30,Logging,2001,878
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2001,75
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2001,43
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2001,39
+Greece,Epirus and Western Macedonia,30,Wildfire,2001,1330
+Greece,Epirus and Western Macedonia,30,Hard commodities,2002,24
+Greece,Epirus and Western Macedonia,30,Logging,2002,321
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2002,25
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2002,31
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2002,49
+Greece,Epirus and Western Macedonia,30,Wildfire,2002,59
+Greece,Epirus and Western Macedonia,30,Hard commodities,2003,11
+Greece,Epirus and Western Macedonia,30,Logging,2003,174
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2003,8
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2003,29
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2003,34
+Greece,Epirus and Western Macedonia,30,Wildfire,2003,8
+Greece,Epirus and Western Macedonia,30,Hard commodities,2004,22
+Greece,Epirus and Western Macedonia,30,Logging,2004,668
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2004,88
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2004,68
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2004,143
+Greece,Epirus and Western Macedonia,30,Wildfire,2004,82
+Greece,Epirus and Western Macedonia,30,Hard commodities,2005,23
+Greece,Epirus and Western Macedonia,30,Logging,2005,240
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2005,12
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2005,50
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2005,83
+Greece,Epirus and Western Macedonia,30,Wildfire,2005,32
+Greece,Epirus and Western Macedonia,30,Hard commodities,2006,40
+Greece,Epirus and Western Macedonia,30,Logging,2006,375
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2006,22
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2006,44
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2006,112
+Greece,Epirus and Western Macedonia,30,Wildfire,2006,47
+Greece,Epirus and Western Macedonia,30,Hard commodities,2007,77
+Greece,Epirus and Western Macedonia,30,Logging,2007,443
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2007,26
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2007,60
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2007,106
+Greece,Epirus and Western Macedonia,30,Wildfire,2007,726
+Greece,Epirus and Western Macedonia,30,Hard commodities,2008,62
+Greece,Epirus and Western Macedonia,30,Logging,2008,771
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2008,147
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2008,56
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2008,114
+Greece,Epirus and Western Macedonia,30,Wildfire,2008,489
+Greece,Epirus and Western Macedonia,30,Hard commodities,2009,30
+Greece,Epirus and Western Macedonia,30,Logging,2009,459
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2009,26
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2009,46
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2009,73
+Greece,Epirus and Western Macedonia,30,Wildfire,2009,115
+Greece,Epirus and Western Macedonia,30,Hard commodities,2010,47
+Greece,Epirus and Western Macedonia,30,Logging,2010,354
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2010,31
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2010,77
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2010,93
+Greece,Epirus and Western Macedonia,30,Wildfire,2010,82
+Greece,Epirus and Western Macedonia,30,Hard commodities,2011,19
+Greece,Epirus and Western Macedonia,30,Logging,2011,373
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2011,16
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2011,56
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2011,61
+Greece,Epirus and Western Macedonia,30,Wildfire,2011,119
+Greece,Epirus and Western Macedonia,30,Hard commodities,2012,17
+Greece,Epirus and Western Macedonia,30,Logging,2012,604
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2012,86
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2012,45
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2012,52
+Greece,Epirus and Western Macedonia,30,Wildfire,2012,114
+Greece,Epirus and Western Macedonia,30,Hard commodities,2013,5
+Greece,Epirus and Western Macedonia,30,Logging,2013,77
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2013,2
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2013,13
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2013,18
+Greece,Epirus and Western Macedonia,30,Wildfire,2013,7
+Greece,Epirus and Western Macedonia,30,Hard commodities,2014,35
+Greece,Epirus and Western Macedonia,30,Logging,2014,176
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2014,3
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2014,23
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2014,39
+Greece,Epirus and Western Macedonia,30,Wildfire,2014,12
+Greece,Epirus and Western Macedonia,30,Hard commodities,2015,44
+Greece,Epirus and Western Macedonia,30,Logging,2015,176
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2015,1
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2015,21
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2015,39
+Greece,Epirus and Western Macedonia,30,Wildfire,2015,6
+Greece,Epirus and Western Macedonia,30,Hard commodities,2016,15
+Greece,Epirus and Western Macedonia,30,Logging,2016,262
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2016,12
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2016,37
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2016,28
+Greece,Epirus and Western Macedonia,30,Wildfire,2016,22
+Greece,Epirus and Western Macedonia,30,Hard commodities,2017,17
+Greece,Epirus and Western Macedonia,30,Logging,2017,251
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2017,1
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2017,52
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2017,36
+Greece,Epirus and Western Macedonia,30,Wildfire,2017,97
+Greece,Epirus and Western Macedonia,30,Hard commodities,2018,32
+Greece,Epirus and Western Macedonia,30,Logging,2018,257
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2018,1
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2018,32
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2018,44
+Greece,Epirus and Western Macedonia,30,Wildfire,2018,88
+Greece,Epirus and Western Macedonia,30,Hard commodities,2019,5
+Greece,Epirus and Western Macedonia,30,Logging,2019,362
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2019,5
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2019,39
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2019,120
+Greece,Epirus and Western Macedonia,30,Wildfire,2019,35
+Greece,Epirus and Western Macedonia,30,Hard commodities,2020,4
+Greece,Epirus and Western Macedonia,30,Logging,2020,283
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2020,3
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2020,34
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2020,61
+Greece,Epirus and Western Macedonia,30,Wildfire,2020,23
+Greece,Epirus and Western Macedonia,30,Hard commodities,2021,9
+Greece,Epirus and Western Macedonia,30,Logging,2021,261
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2021,3
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2021,39
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2021,50
+Greece,Epirus and Western Macedonia,30,Wildfire,2021,174
+Greece,Epirus and Western Macedonia,30,Hard commodities,2022,17
+Greece,Epirus and Western Macedonia,30,Logging,2022,503
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2022,3
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2022,53
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2022,58
+Greece,Epirus and Western Macedonia,30,Wildfire,2022,151
+Greece,Epirus and Western Macedonia,30,Hard commodities,2023,29
+Greece,Epirus and Western Macedonia,30,Logging,2023,984
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2023,17
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2023,50
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2023,51
+Greece,Epirus and Western Macedonia,30,Wildfire,2023,21
+Greece,Epirus and Western Macedonia,30,Hard commodities,2024,5
+Greece,Epirus and Western Macedonia,30,Logging,2024,303
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2024,2
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2024,31
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2024,32
+Greece,Epirus and Western Macedonia,30,Wildfire,2024,30
+Greece,Epirus and Western Macedonia,30,Hard commodities,2025,9
+Greece,Epirus and Western Macedonia,30,Logging,2025,323
+Greece,Epirus and Western Macedonia,30,Other natural disturbances,2025,5
+Greece,Epirus and Western Macedonia,30,Permanent agriculture,2025,27
+Greece,Epirus and Western Macedonia,30,Settlements & Infrastructure,2025,37
+Greece,Epirus and Western Macedonia,30,Wildfire,2025,313
+Greece,Macedonia and Thrace,30,Hard commodities,2001,26
+Greece,Macedonia and Thrace,30,Logging,2001,834
+Greece,Macedonia and Thrace,30,Other natural disturbances,2001,15
+Greece,Macedonia and Thrace,30,Permanent agriculture,2001,65
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2001,79
+Greece,Macedonia and Thrace,30,Wildfire,2001,602
+Greece,Macedonia and Thrace,30,Hard commodities,2002,16
+Greece,Macedonia and Thrace,30,Logging,2002,758
+Greece,Macedonia and Thrace,30,Other natural disturbances,2002,31
+Greece,Macedonia and Thrace,30,Permanent agriculture,2002,64
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2002,73
+Greece,Macedonia and Thrace,30,Wildfire,2002,246
+Greece,Macedonia and Thrace,30,Hard commodities,2003,9
+Greece,Macedonia and Thrace,30,Logging,2003,468
+Greece,Macedonia and Thrace,30,Other natural disturbances,2003,5
+Greece,Macedonia and Thrace,30,Permanent agriculture,2003,41
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2003,44
+Greece,Macedonia and Thrace,30,Wildfire,2003,43
+Greece,Macedonia and Thrace,30,Hard commodities,2004,22
+Greece,Macedonia and Thrace,30,Logging,2004,1010
+Greece,Macedonia and Thrace,30,Other natural disturbances,2004,5
+Greece,Macedonia and Thrace,30,Permanent agriculture,2004,59
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2004,88
+Greece,Macedonia and Thrace,30,Wildfire,2004,104
+Greece,Macedonia and Thrace,30,Hard commodities,2005,11
+Greece,Macedonia and Thrace,30,Logging,2005,609
+Greece,Macedonia and Thrace,30,Other natural disturbances,2005,6
+Greece,Macedonia and Thrace,30,Permanent agriculture,2005,65
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2005,46
+Greece,Macedonia and Thrace,30,Wildfire,2005,59
+Greece,Macedonia and Thrace,30,Hard commodities,2006,35
+Greece,Macedonia and Thrace,30,Logging,2006,833
+Greece,Macedonia and Thrace,30,Other natural disturbances,2006,6
+Greece,Macedonia and Thrace,30,Permanent agriculture,2006,81
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2006,89
+Greece,Macedonia and Thrace,30,Wildfire,2006,1509
+Greece,Macedonia and Thrace,30,Hard commodities,2007,47
+Greece,Macedonia and Thrace,30,Logging,2007,757
+Greece,Macedonia and Thrace,30,Other natural disturbances,2007,4
+Greece,Macedonia and Thrace,30,Permanent agriculture,2007,66
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2007,86
+Greece,Macedonia and Thrace,30,Wildfire,2007,617
+Greece,Macedonia and Thrace,30,Hard commodities,2008,63
+Greece,Macedonia and Thrace,30,Logging,2008,795
+Greece,Macedonia and Thrace,30,Other natural disturbances,2008,7
+Greece,Macedonia and Thrace,30,Permanent agriculture,2008,97
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2008,117
+Greece,Macedonia and Thrace,30,Wildfire,2008,264
+Greece,Macedonia and Thrace,30,Hard commodities,2009,36
+Greece,Macedonia and Thrace,30,Logging,2009,910
+Greece,Macedonia and Thrace,30,Other natural disturbances,2009,7
+Greece,Macedonia and Thrace,30,Permanent agriculture,2009,64
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2009,59
+Greece,Macedonia and Thrace,30,Wildfire,2009,385
+Greece,Macedonia and Thrace,30,Hard commodities,2010,15
+Greece,Macedonia and Thrace,30,Logging,2010,635
+Greece,Macedonia and Thrace,30,Other natural disturbances,2010,7
+Greece,Macedonia and Thrace,30,Permanent agriculture,2010,63
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2010,49
+Greece,Macedonia and Thrace,30,Wildfire,2010,216
+Greece,Macedonia and Thrace,30,Hard commodities,2011,11
+Greece,Macedonia and Thrace,30,Logging,2011,798
+Greece,Macedonia and Thrace,30,Other natural disturbances,2011,1
+Greece,Macedonia and Thrace,30,Permanent agriculture,2011,48
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2011,25
+Greece,Macedonia and Thrace,30,Wildfire,2011,175
+Greece,Macedonia and Thrace,30,Hard commodities,2012,18
+Greece,Macedonia and Thrace,30,Logging,2012,1267
+Greece,Macedonia and Thrace,30,Other natural disturbances,2012,7
+Greece,Macedonia and Thrace,30,Permanent agriculture,2012,61
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2012,24
+Greece,Macedonia and Thrace,30,Wildfire,2012,2782
+Greece,Macedonia and Thrace,30,Hard commodities,2013,11
+Greece,Macedonia and Thrace,30,Logging,2013,371
+Greece,Macedonia and Thrace,30,Other natural disturbances,2013,3
+Greece,Macedonia and Thrace,30,Permanent agriculture,2013,11
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2013,6
+Greece,Macedonia and Thrace,30,Wildfire,2013,245
+Greece,Macedonia and Thrace,30,Hard commodities,2014,91
+Greece,Macedonia and Thrace,30,Logging,2014,798
+Greece,Macedonia and Thrace,30,Other natural disturbances,2014,24
+Greece,Macedonia and Thrace,30,Permanent agriculture,2014,28
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2014,29
+Greece,Macedonia and Thrace,30,Wildfire,2014,404
+Greece,Macedonia and Thrace,30,Hard commodities,2015,18
+Greece,Macedonia and Thrace,30,Logging,2015,891
+Greece,Macedonia and Thrace,30,Other natural disturbances,2015,1
+Greece,Macedonia and Thrace,30,Permanent agriculture,2015,39
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2015,14
+Greece,Macedonia and Thrace,30,Wildfire,2015,79
+Greece,Macedonia and Thrace,30,Hard commodities,2016,35
+Greece,Macedonia and Thrace,30,Logging,2016,1038
+Greece,Macedonia and Thrace,30,Other natural disturbances,2016,6
+Greece,Macedonia and Thrace,30,Permanent agriculture,2016,42
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2016,30
+Greece,Macedonia and Thrace,30,Wildfire,2016,379
+Greece,Macedonia and Thrace,30,Hard commodities,2017,49
+Greece,Macedonia and Thrace,30,Logging,2017,1042
+Greece,Macedonia and Thrace,30,Other natural disturbances,2017,10
+Greece,Macedonia and Thrace,30,Permanent agriculture,2017,79
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2017,37
+Greece,Macedonia and Thrace,30,Wildfire,2017,1194
+Greece,Macedonia and Thrace,30,Hard commodities,2018,32
+Greece,Macedonia and Thrace,30,Logging,2018,1312
+Greece,Macedonia and Thrace,30,Other natural disturbances,2018,4
+Greece,Macedonia and Thrace,30,Permanent agriculture,2018,29
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2018,106
+Greece,Macedonia and Thrace,30,Wildfire,2018,320
+Greece,Macedonia and Thrace,30,Hard commodities,2019,24
+Greece,Macedonia and Thrace,30,Logging,2019,1393
+Greece,Macedonia and Thrace,30,Other natural disturbances,2019,20
+Greece,Macedonia and Thrace,30,Permanent agriculture,2019,39
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2019,35
+Greece,Macedonia and Thrace,30,Wildfire,2019,703
+Greece,Macedonia and Thrace,30,Hard commodities,2020,23
+Greece,Macedonia and Thrace,30,Logging,2020,1171
+Greece,Macedonia and Thrace,30,Other natural disturbances,2020,2
+Greece,Macedonia and Thrace,30,Permanent agriculture,2020,36
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2020,33
+Greece,Macedonia and Thrace,30,Wildfire,2020,85
+Greece,Macedonia and Thrace,30,Hard commodities,2021,26
+Greece,Macedonia and Thrace,30,Logging,2021,1016
+Greece,Macedonia and Thrace,30,Other natural disturbances,2021,5
+Greece,Macedonia and Thrace,30,Permanent agriculture,2021,31
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2021,42
+Greece,Macedonia and Thrace,30,Wildfire,2021,422
+Greece,Macedonia and Thrace,30,Hard commodities,2022,20
+Greece,Macedonia and Thrace,30,Logging,2022,1248
+Greece,Macedonia and Thrace,30,Other natural disturbances,2022,1
+Greece,Macedonia and Thrace,30,Permanent agriculture,2022,39
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2022,13
+Greece,Macedonia and Thrace,30,Wildfire,2022,565
+Greece,Macedonia and Thrace,30,Hard commodities,2023,44
+Greece,Macedonia and Thrace,30,Logging,2023,1657
+Greece,Macedonia and Thrace,30,Other natural disturbances,2023,0
+Greece,Macedonia and Thrace,30,Permanent agriculture,2023,49
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2023,51
+Greece,Macedonia and Thrace,30,Wildfire,2023,33218
+Greece,Macedonia and Thrace,30,Hard commodities,2024,43
+Greece,Macedonia and Thrace,30,Logging,2024,1130
+Greece,Macedonia and Thrace,30,Other natural disturbances,2024,1
+Greece,Macedonia and Thrace,30,Permanent agriculture,2024,55
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2024,28
+Greece,Macedonia and Thrace,30,Wildfire,2024,4952
+Greece,Macedonia and Thrace,30,Hard commodities,2025,50
+Greece,Macedonia and Thrace,30,Logging,2025,1241
+Greece,Macedonia and Thrace,30,Other natural disturbances,2025,9
+Greece,Macedonia and Thrace,30,Permanent agriculture,2025,47
+Greece,Macedonia and Thrace,30,Settlements & Infrastructure,2025,67
+Greece,Macedonia and Thrace,30,Wildfire,2025,1043
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2001,20
+Greece,"Peloponnese, Western Greece and",30,Logging,2001,563
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2001,2
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2001,356
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2001,300
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2001,4085
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2002,16
+Greece,"Peloponnese, Western Greece and",30,Logging,2002,160
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2002,2
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2002,216
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2002,134
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2002,587
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2003,9
+Greece,"Peloponnese, Western Greece and",30,Logging,2003,94
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2003,10
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2003,134
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2003,89
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2003,308
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2004,30
+Greece,"Peloponnese, Western Greece and",30,Logging,2004,587
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2004,1
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2004,325
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2004,975
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2004,549
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2005,7
+Greece,"Peloponnese, Western Greece and",30,Logging,2005,148
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2005,3
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2005,195
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2005,220
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2005,480
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2006,22
+Greece,"Peloponnese, Western Greece and",30,Logging,2006,140
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2006,1
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2006,246
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2006,262
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2006,1530
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2007,60
+Greece,"Peloponnese, Western Greece and",30,Logging,2007,286
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2007,7
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2007,1039
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2007,287
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2007,29265
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2008,16
+Greece,"Peloponnese, Western Greece and",30,Logging,2008,369
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2008,4
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2008,330
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2008,341
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2008,7964
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2009,22
+Greece,"Peloponnese, Western Greece and",30,Logging,2009,147
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2009,2
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2009,255
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2009,260
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2009,870
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2010,35
+Greece,"Peloponnese, Western Greece and",30,Logging,2010,185
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2010,0
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2010,168
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2010,488
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2010,817
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2011,42
+Greece,"Peloponnese, Western Greece and",30,Logging,2011,226
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2011,5
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2011,264
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2011,338
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2011,1306
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2012,21
+Greece,"Peloponnese, Western Greece and",30,Logging,2012,201
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2012,5
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2012,181
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2012,231
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2012,1812
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2013,10
+Greece,"Peloponnese, Western Greece and",30,Logging,2013,90
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2013,8
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2013,81
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2013,60
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2013,439
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2014,15
+Greece,"Peloponnese, Western Greece and",30,Logging,2014,68
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2014,1
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2014,67
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2014,49
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2014,364
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2015,16
+Greece,"Peloponnese, Western Greece and",30,Logging,2015,63
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2015,9
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2015,72
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2015,91
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2015,1047
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2016,9
+Greece,"Peloponnese, Western Greece and",30,Logging,2016,131
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2016,2
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2016,92
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2016,115
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2016,296
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2017,10
+Greece,"Peloponnese, Western Greece and",30,Logging,2017,136
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2017,1
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2017,135
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2017,125
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2017,1918
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2018,14
+Greece,"Peloponnese, Western Greece and",30,Logging,2018,116
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2018,1
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2018,101
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2018,206
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2018,1287
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2019,18
+Greece,"Peloponnese, Western Greece and",30,Logging,2019,175
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2019,14
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2019,147
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2019,161
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2019,493
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2020,11
+Greece,"Peloponnese, Western Greece and",30,Logging,2020,155
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2020,4
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2020,118
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2020,163
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2020,1801
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2021,13
+Greece,"Peloponnese, Western Greece and",30,Logging,2021,112
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2021,0
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2021,102
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2021,178
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2021,9949
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2022,10
+Greece,"Peloponnese, Western Greece and",30,Logging,2022,107
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2022,2
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2022,64
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2022,164
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2022,1195
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2023,48
+Greece,"Peloponnese, Western Greece and",30,Logging,2023,247
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2023,3
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2023,79
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2023,223
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2023,936
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2024,36
+Greece,"Peloponnese, Western Greece and",30,Logging,2024,215
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2024,0
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2024,114
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2024,176
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2024,2352
+Greece,"Peloponnese, Western Greece and",30,Hard commodities,2025,27
+Greece,"Peloponnese, Western Greece and",30,Logging,2025,149
+Greece,"Peloponnese, Western Greece and",30,Other natural disturbances,2025,10
+Greece,"Peloponnese, Western Greece and",30,Permanent agriculture,2025,128
+Greece,"Peloponnese, Western Greece and",30,Settlements & Infrastructure,2025,180
+Greece,"Peloponnese, Western Greece and",30,Wildfire,2025,2672
+Greece,Thessaly and Central Greece,30,Hard commodities,2001,16
+Greece,Thessaly and Central Greece,30,Logging,2001,443
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2001,2
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2001,152
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2001,70
+Greece,Thessaly and Central Greece,30,Wildfire,2001,1243
+Greece,Thessaly and Central Greece,30,Hard commodities,2002,53
+Greece,Thessaly and Central Greece,30,Logging,2002,351
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2002,3
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2002,106
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2002,179
+Greece,Thessaly and Central Greece,30,Wildfire,2002,595
+Greece,Thessaly and Central Greece,30,Hard commodities,2003,21
+Greece,Thessaly and Central Greece,30,Logging,2003,94
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2003,2
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2003,45
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2003,36
+Greece,Thessaly and Central Greece,30,Wildfire,2003,41
+Greece,Thessaly and Central Greece,30,Hard commodities,2004,27
+Greece,Thessaly and Central Greece,30,Logging,2004,285
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2004,4
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2004,88
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2004,109
+Greece,Thessaly and Central Greece,30,Wildfire,2004,307
+Greece,Thessaly and Central Greece,30,Hard commodities,2005,15
+Greece,Thessaly and Central Greece,30,Logging,2005,335
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2005,3
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2005,55
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2005,106
+Greece,Thessaly and Central Greece,30,Wildfire,2005,388
+Greece,Thessaly and Central Greece,30,Hard commodities,2006,27
+Greece,Thessaly and Central Greece,30,Logging,2006,213
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2006,1
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2006,78
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2006,107
+Greece,Thessaly and Central Greece,30,Wildfire,2006,501
+Greece,Thessaly and Central Greece,30,Hard commodities,2007,39
+Greece,Thessaly and Central Greece,30,Logging,2007,315
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2007,2
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2007,89
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2007,187
+Greece,Thessaly and Central Greece,30,Wildfire,2007,7768
+Greece,Thessaly and Central Greece,30,Hard commodities,2008,40
+Greece,Thessaly and Central Greece,30,Logging,2008,230
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2008,5
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2008,91
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2008,198
+Greece,Thessaly and Central Greece,30,Wildfire,2008,1797
+Greece,Thessaly and Central Greece,30,Hard commodities,2009,11
+Greece,Thessaly and Central Greece,30,Logging,2009,416
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2009,1
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2009,39
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2009,88
+Greece,Thessaly and Central Greece,30,Wildfire,2009,425
+Greece,Thessaly and Central Greece,30,Hard commodities,2010,12
+Greece,Thessaly and Central Greece,30,Logging,2010,308
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2010,2
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2010,70
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2010,104
+Greece,Thessaly and Central Greece,30,Wildfire,2010,1474
+Greece,Thessaly and Central Greece,30,Hard commodities,2011,33
+Greece,Thessaly and Central Greece,30,Logging,2011,451
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2011,5
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2011,56
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2011,80
+Greece,Thessaly and Central Greece,30,Wildfire,2011,739
+Greece,Thessaly and Central Greece,30,Hard commodities,2012,11
+Greece,Thessaly and Central Greece,30,Logging,2012,363
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2012,6
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2012,38
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2012,58
+Greece,Thessaly and Central Greece,30,Wildfire,2012,873
+Greece,Thessaly and Central Greece,30,Hard commodities,2013,5
+Greece,Thessaly and Central Greece,30,Logging,2013,216
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2013,1
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2013,22
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2013,19
+Greece,Thessaly and Central Greece,30,Wildfire,2013,1099
+Greece,Thessaly and Central Greece,30,Hard commodities,2014,6
+Greece,Thessaly and Central Greece,30,Logging,2014,347
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2014,8
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2014,65
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2014,69
+Greece,Thessaly and Central Greece,30,Wildfire,2014,437
+Greece,Thessaly and Central Greece,30,Hard commodities,2015,4
+Greece,Thessaly and Central Greece,30,Logging,2015,247
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2015,15
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2015,45
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2015,47
+Greece,Thessaly and Central Greece,30,Wildfire,2015,284
+Greece,Thessaly and Central Greece,30,Hard commodities,2016,17
+Greece,Thessaly and Central Greece,30,Logging,2016,326
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2016,1
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2016,39
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2016,36
+Greece,Thessaly and Central Greece,30,Wildfire,2016,1877
+Greece,Thessaly and Central Greece,30,Hard commodities,2017,8
+Greece,Thessaly and Central Greece,30,Logging,2017,311
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2017,5
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2017,55
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2017,90
+Greece,Thessaly and Central Greece,30,Wildfire,2017,1079
+Greece,Thessaly and Central Greece,30,Hard commodities,2018,3
+Greece,Thessaly and Central Greece,30,Logging,2018,364
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2018,2
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2018,41
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2018,32
+Greece,Thessaly and Central Greece,30,Wildfire,2018,315
+Greece,Thessaly and Central Greece,30,Hard commodities,2019,49
+Greece,Thessaly and Central Greece,30,Logging,2019,569
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2019,8
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2019,75
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2019,75
+Greece,Thessaly and Central Greece,30,Wildfire,2019,2121
+Greece,Thessaly and Central Greece,30,Hard commodities,2020,20
+Greece,Thessaly and Central Greece,30,Logging,2020,439
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2020,4
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2020,49
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2020,62
+Greece,Thessaly and Central Greece,30,Wildfire,2020,323
+Greece,Thessaly and Central Greece,30,Hard commodities,2021,11
+Greece,Thessaly and Central Greece,30,Logging,2021,368
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2021,16
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2021,62
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2021,187
+Greece,Thessaly and Central Greece,30,Wildfire,2021,26475
+Greece,Thessaly and Central Greece,30,Hard commodities,2022,4
+Greece,Thessaly and Central Greece,30,Logging,2022,363
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2022,4
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2022,28
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2022,68
+Greece,Thessaly and Central Greece,30,Wildfire,2022,2944
+Greece,Thessaly and Central Greece,30,Hard commodities,2023,9
+Greece,Thessaly and Central Greece,30,Logging,2023,821
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2023,8
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2023,33
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2023,72
+Greece,Thessaly and Central Greece,30,Wildfire,2023,2251
+Greece,Thessaly and Central Greece,30,Hard commodities,2024,17
+Greece,Thessaly and Central Greece,30,Logging,2024,432
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2024,31
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2024,36
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2024,160
+Greece,Thessaly and Central Greece,30,Wildfire,2024,468
+Greece,Thessaly and Central Greece,30,Hard commodities,2025,51
+Greece,Thessaly and Central Greece,30,Logging,2025,573
+Greece,Thessaly and Central Greece,30,Other natural disturbances,2025,6
+Greece,Thessaly and Central Greece,30,Permanent agriculture,2025,29
+Greece,Thessaly and Central Greece,30,Settlements & Infrastructure,2025,188
+Greece,Thessaly and Central Greece,30,Wildfire,2025,484

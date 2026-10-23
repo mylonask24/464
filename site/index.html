@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Forest Fires in Greece</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container">
+      <p class="eyebrow">Geog 464 project</p>
+      <h1>Forest Fires in Greece</h1>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div class="text-panel">
+        <p class="lead">
+          This project maps wildfire incident records in Greece by municipality and highlights the
+          reported burned area associated with each administrative boundary.
+        </p>
+        <ul class="facts">
+          <li>Incident source: Greek fire-service records with municipality names</li>
+          <li>Boundary source: GeoBoundaries administrative polygons for Greece</li>
+          <li>Current view: municipality-level, approximate but reviewable</li>
+          <li>Future goal: exact perimeter mapping with a cumulative-year slider</li>
+        </ul>
+      </div>
+
+      <aside class="summary-card">
+        <h2>Project status</h2>
+        <p><span class="label">Period:</span> <strong id="period">2014–2018</strong></p>
+        <p><span class="label">Coverage:</span> <strong id="coverage">Reviewed municipality matches</strong></p>
+        <p><span class="label">Method:</span> <strong id="method">Boundary crosswalk + area summary</strong></p>
+      </aside>
+    </section>
+
+    <section class="timeline-panel">
+      <div class="timeline-header">
+        <div>
+          <p class="eyebrow secondary">Cumulative burned area</p>
+          <h2>Year slider prototype</h2>
+        </div>
+        <p class="timeline-note">Prototype using the current 2014–2018 fire dataset. Exact fire-perimeter data would extend this to 2000–present.</p>
+      </div>
+
+      <div class="slider-wrap">
+        <label for="yearSlider">Selected year</label>
+        <input id="yearSlider" type="range" min="2014" max="2018" step="1" value="2018" />
+        <div class="year-readout">
+          <span id="summaryYear">2018</span>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Incidents</span>
+          <strong id="incidentCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Area in selected year</span>
+          <strong id="yearTotal">0 ha</strong>
+        </div>
+        <div class="stat-card highlight">
+          <span class="stat-label">Cumulative area</span>
+          <strong id="cumulativeTotal">0 ha</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="map-panel">
+      <div class="map-header">
+        <h2>Municipality-level wildfire map</h2>
+        <p id="status">Loading map summary...</p>
+      </div>
+      <iframe
+        src="fire_municipality_map.html"
+        title="Forest Fires in Greece municipality map"
+        loading="lazy"
+      ></iframe>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

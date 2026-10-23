@@ -1,0 +1,7 @@
+[
+  {"year": 2014, "incident_count": 6832, "total_burned_ha": 193187.33, "cumulative_burned_ha": 193187.33},
+  {"year": 2015, "incident_count": 8118, "total_burned_ha": 170858.34, "cumulative_burned_ha": 364045.67},
+  {"year": 2016, "incident_count": 10259, "total_burned_ha": 420010.74, "cumulative_burned_ha": 784056.41},
+  {"year": 2017, "incident_count": 10356, "total_burned_ha": 231322.5, "cumulative_burned_ha": 1015378.91},
+  {"year": 2018, "incident_count": 8006, "total_burned_ha": 193816.27, "cumulative_burned_ha": 1209195.18}
+]

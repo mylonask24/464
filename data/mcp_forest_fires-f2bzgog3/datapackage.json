@@ -1,0 +1,37 @@
+{
+  "description": "Δεδομένα που αφορούν τα Δασικά συμβάντα στα οποία επεμβαίνει το Π.Σ. Τα στατιστικά δελτία προκύπτουν από την επεξεργασία των φυσικών δελτίων συμβάντων",
+  "keywords": [
+    "data.gov.gr",
+    "Από Μετάπτωση"
+  ],
+  "name": "mcp_forest_fires",
+  "resources": [
+    {
+      "format": "CSV",
+      "hash": "d8ccab46fad5d2d7ab7538a35785d7c9",
+      "name": "export-mcp-forest-fires",
+      "path": "export_mcp_forest_fires.csv",
+      "sources": [
+        {
+          "path": "https://new.data.gov.gr/dataset/363b7676-1604-438e-a5ee-545c29d15caf/resource/3676d1d4-14e4-4758-a5c1-ac6279afe7d3/download/export_mcp_forest_fires.csv",
+          "title": "Export_mcp_forest_fires"
+        }
+      ],
+      "title": "Export_mcp_forest_fires"
+    },
+    {
+      "format": "CSV",
+      "hash": "a880f530e1f52ee87c83dff642ea78c5",
+      "name": "export-mcp-forest-fires0",
+      "path": "export_mcp_forest_fires.csv",
+      "sources": [
+        {
+          "path": "https://new.data.gov.gr/dataset/363b7676-1604-438e-a5ee-545c29d15caf/resource/92018a96-be9a-49df-82a2-7eafc39a82d1/download/export_mcp_forest_fires.csv",
+          "title": "Export_mcp_forest_fires"
+        }
+      ],
+      "title": "Export_mcp_forest_fires"
+    }
+  ],
+  "title": "Λίστα Δασικών Πυρκαγιών"
+}
