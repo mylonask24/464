@@ -20,6 +20,12 @@
 - License: CC0 1.0 Universal (public domain dedication), as reported by geoBoundaries metadata.
 - The layer's Latin-script names do not exactly match every Greek municipality name in the incident records. Any joined locations must be reviewed and unmatched records reported; polygon representative points are municipality-level approximations, not fire coordinates.
 
+## Address search
+
+- Provider: [OpenStreetMap Nominatim](https://nominatim.openstreetmap.org/), using its public search API to geocode addresses entered by the reader. Search requests are limited to Greece and are sent only after the reader submits the form.
+- Attribution: OpenStreetMap contributors, [ODbL](https://www.openstreetmap.org/copyright).
+- The public Nominatim service has limited capacity and requires an identifying HTTP Referer or User-Agent, visible attribution, and no more than one request per second per application. The page caches successful searches for the current browser session and does not autocomplete. Use the site through VS Code Live Server or a hosted HTTP(S) page so the browser sends a page Referer. Do not enter sensitive personal information in searches. See the [Nominatim usage policy](https://operations.osmfoundation.org/policies/nominatim/).
+
 ## Broad administrative boundaries
 
 - Dataset: geoBoundaries Greece ADM2 simplified boundaries (`14` units; boundary year represented: `2016`).

@@ -105,6 +105,67 @@ h1 {
   box-shadow: 0 6px 18px rgba(22, 59, 47, 0.06);
 }
 
+.address-search {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.address-search label {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.address-search-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.address-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+}
+
+.address-search button {
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--primary);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.address-search button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.search-status,
+.geocoder-attribution {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.search-status[data-state="error"] {
+  color: #9c2525;
+}
+
+.search-status[data-state="success"] {
+  color: var(--primary);
+}
+
+.geocoder-attribution a {
+  color: var(--primary);
+}
+
 .timeline-header,
 .map-header {
   display: flex;
@@ -211,6 +272,10 @@ iframe {
 
   .stats-grid {
     grid-template-columns: 1fr;
+  }
+
+  .address-search-controls {
+    flex-direction: column;
   }
 
   iframe {

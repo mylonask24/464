@@ -2,7 +2,7 @@
 
 ## Project description
 
-This project maps reported wildfire burned area by municipality in Greece from 2014 through 2018. It is intended for geography students and readers interested in the distribution of reported wildfire impacts. Comparing municipalities provides geographic context for the incident records. Hover over or select a municipality on the map to view its reported burned-area total. Boundary colors use five quantile classes on a light-yellow-to-dark-red ramp; they summarize reported burned area, not official fire-severity ratings. The map uses administrative polygons because incident records do not include exact fire coordinates or fire-perimeter polygons.
+This project maps reported wildfire burned area by municipality in Greece from 2014 through 2018. It is intended for geography students and readers interested in the distribution of reported wildfire impacts. Comparing municipalities provides geographic context for the incident records. Hover over a municipality to view its reported burned-area total, or search for an address in Greece to zoom the map to that location. Boundary colors use five quantile classes on a light-yellow-to-dark-red ramp; they summarize reported burned area, not official fire-severity ratings. The map uses administrative polygons because incident records do not include exact fire coordinates or fire-perimeter polygons.
 
 ## Data sources and licenses
 
@@ -27,13 +27,13 @@ The tools i used was the chat box here in visual studio code and whatever that e
 
 ## A3 feature: Address search and map zoom
 
-For A3, I will add an address-search box that uses a geocoding service to find a place and zoom the map to it, so readers can quickly explore a location they're interested in.
+For A3, I added an address-search box that uses the OpenStreetMap Nominatim geocoding API to find an address in Greece and zoom the map to it, so readers can quickly explore a location they're interested in.
 
-It has depth because it sends the reader's search to an external geocoding service, receives coordinates for a matching address, and uses those coordinates to reposition and zoom the map.
+It has depth because it sends the submitted search to an external geocoding service, receives coordinates for a matching address, and uses those coordinates to reposition and zoom the map.
 
-I will know it works when a valid address is found and the map zooms to the returned location.
+I know it works when a valid address is found and the map zooms to the returned location.
 
-My edge case is an address that cannot be found or a geocoding service that is unavailable. The page should show a clear message and remain usable without a console error.
+It handles an address that cannot be found or an unavailable geocoding service by showing a clear message and leaving the map usable.
 
 ### A3 feature tests
 

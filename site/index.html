@@ -75,7 +75,29 @@
         <h2>Municipality-level wildfire map</h2>
         <p id="status">Loading map summary...</p>
       </div>
+      <form id="addressSearchForm" class="address-search" data-geocoder-endpoint="https://nominatim.openstreetmap.org/search">
+        <label for="addressInput">Find an address in Greece</label>
+        <div class="address-search-controls">
+          <input
+            id="addressInput"
+            name="address"
+            type="search"
+            maxlength="200"
+            placeholder="For example, Syntagma Square, Athens"
+            autocomplete="street-address"
+            required
+          />
+          <button id="addressSearchButton" type="submit">Search map</button>
+        </div>
+        <p id="addressSearchStatus" class="search-status" role="status" aria-live="polite">
+          Search is sent to OpenStreetMap Nominatim. Do not enter sensitive personal information.
+        </p>
+        <p class="geocoder-attribution">
+          Geocoding by <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.
+        </p>
+      </form>
       <iframe
+        id="fireMap"
         src="fire_municipality_map.html"
         title="Forest Fires in Greece municipality map"
         loading="lazy"

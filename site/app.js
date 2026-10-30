@@ -8,6 +8,125 @@ document.addEventListener('DOMContentLoaded', () => {
   const incidentCount = document.getElementById('incidentCount');
   const yearTotal = document.getElementById('yearTotal');
   const cumulativeTotal = document.getElementById('cumulativeTotal');
+  const addressSearchForm = document.getElementById('addressSearchForm');
+  const addressInput = document.getElementById('addressInput');
+  const addressSearchButton = document.getElementById('addressSearchButton');
+  const addressSearchStatus = document.getElementById('addressSearchStatus');
+  const fireMap = document.getElementById('fireMap');
+  const geocodeCache = new Map();
+  let mapReady = false;
+  let pendingLocation = null;
+  let lastGeocodeRequestAt = 0;
+
+  const moveMapToLocation = location => {
+    if (!fireMap?.contentWindow) {
+      return;
+    }
+
+    fireMap.contentWindow.postMessage({
+      type: 'geocode-result',
+      lat: location.lat,
+      lon: location.lon,
+      zoom: 14
+    }, '*');
+  };
+
+  if (fireMap) {
+    fireMap.addEventListener('load', () => {
+      mapReady = true;
+      if (pendingLocation) {
+        moveMapToLocation(pendingLocation);
+        pendingLocation = null;
+      }
+    });
+  }
+
+  if (addressSearchForm && addressInput && addressSearchButton && addressSearchStatus) {
+    addressSearchForm.addEventListener('submit', async event => {
+      event.preventDefault();
+      const query = addressInput.value.trim();
+      if (!query) {
+        addressSearchStatus.textContent = 'Enter an address in Greece to search.';
+        addressInput.focus();
+        return;
+      }
+
+      const cacheKey = query.toLocaleLowerCase();
+      let location = geocodeCache.get(cacheKey);
+      addressSearchButton.disabled = true;
+      addressSearchStatus.textContent = 'Searching for the address in Greece...';
+      addressSearchStatus.dataset.state = 'loading';
+
+      try {
+        if (!location) {
+          const delay = Math.max(0, 1000 - (Date.now() - lastGeocodeRequestAt));
+          if (delay) {
+            await new Promise(resolve => setTimeout(resolve, delay));
+          }
+
+          const endpoint = addressSearchForm.dataset.geocoderEndpoint;
+          if (!endpoint) {
+            throw new Error('Address search is not configured.');
+          }
+          const url = new URL(endpoint);
+          url.search = new URLSearchParams({
+            q: query,
+            format: 'jsonv2',
+            limit: '1',
+            countrycodes: 'gr'
+          });
+
+          lastGeocodeRequestAt = Date.now();
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 12000);
+          let response;
+          try {
+            response = await fetch(url, { signal: controller.signal });
+          } finally {
+            clearTimeout(timeout);
+          }
+
+          if (!response.ok) {
+            throw new Error(`Address service returned HTTP ${response.status}.`);
+          }
+
+          const results = await response.json();
+          if (!Array.isArray(results) || results.length === 0) {
+            addressSearchStatus.textContent = 'No matching address found in Greece. Try adding a city or postal code.';
+            addressSearchStatus.dataset.state = 'error';
+            return;
+          }
+
+          const result = results[0];
+          const lat = Number(result.lat);
+          const lon = Number(result.lon);
+          if (!Number.isFinite(lat) || lat < -90 || lat > 90 || !Number.isFinite(lon) || lon < -180 || lon > 180) {
+            throw new Error('The address service returned invalid coordinates.');
+          }
+
+          location = { lat, lon, label: result.display_name || query };
+          geocodeCache.set(cacheKey, location);
+        }
+
+        if (mapReady) {
+          moveMapToLocation(location);
+        } else {
+          pendingLocation = location;
+        }
+        addressSearchStatus.textContent = `Map moved to: ${location.label}`;
+        addressSearchStatus.dataset.state = 'success';
+      } catch (error) {
+        if (error.name === 'AbortError') {
+          addressSearchStatus.textContent = 'Address search timed out. Please try again.';
+        } else {
+          addressSearchStatus.textContent = 'Address search is temporarily unavailable. Please try again shortly.';
+        }
+        addressSearchStatus.dataset.state = 'error';
+      } finally {
+        addressSearchButton.disabled = false;
+      }
+    });
+  }
 
   if (status) {
     status.textContent = 'Approximate municipality-level map • 302 of 303 municipality names mapped';
