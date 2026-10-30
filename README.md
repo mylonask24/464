@@ -28,3 +28,18 @@ The tools i used was the chat box here in visual studio code and whatever that e
 ## After the demo
 At my demo, The slider not matching with my points/colours as well as there noe being polygons and only points
 Today I will [fix it / add the second layer that answers ___].
+
+## A3 feature: Geo Location
+For A3 I will add An API so that my reader can GEOLOCATE THEMSELVES
+It has depth because it (computes / responds / brings in) Location data 
+I will know it works when ________.
+My edge case is ________.
+
+Test 1. I [do something a normal reader would do].
+  Expected: [exactly what appears or changes].
+   A normal reader would do is look up a certain andress
+   expected to return and zoom into the map on the adress they looked yp
+Test 2. I [do it again, differently].
+  Expected: [...]
+Test 3. I [the edge case].
+  Expected: [a message the reader understands; no console error].
