@@ -25,21 +25,18 @@ AI tools assisted with project organization, map-development code, and municipal
 
 The tools i used was the chat box here in visual studio code and whatever that entials, i noticed that it uses differet AI models depending on what you ask it. Someimtes it uses chat GPT other times it uses some others. I mostly asked it to help with coding everything because i never coded with python before or visual studio code. The types of questions i would ask it are Specfic carefully thought out questions to achieve specific results. It would return me a lot of different things. For example i asked the chat here to help me a specific map covering a specific data set to portray a silder covering a total area of burnt area. The model returned to me the map and then i would keep asking it to fix specific things to be more attuned to exactly how i want it etc.. Most of the things that came back i accepted since it had to do with coding. I looked it over before accepting to see if it only changed one aspect of the whole code or the whole complete thing. 
 
-## After the demo
-At my demo, The slider not matching with my points/colours as well as there noe being polygons and only points
-Today I will [fix it / add the second layer that answers ___].
+## A3 feature: Address search and map zoom
 
-## A3 feature: Geo Location
-For A3 I will add An API so that my reader can GEOLOCATE THEMSELVES
-It has depth because it (computes / responds / brings in) Location data 
-I will know it works when ________.
-My edge case is ________.
+For A3, I will add an address-search box that uses a geocoding service to find a place and zoom the map to it, so readers can quickly explore a location they're interested in.
 
-Test 1. I [do something a normal reader would do].
-  Expected: [exactly what appears or changes].
-   A normal reader would do is look up a certain andress
-   expected to return and zoom into the map on the adress they looked yp
-Test 2. I [do it again, differently].
-  Expected: [...]
-Test 3. I [the edge case].
-  Expected: [a message the reader understands; no console error].
+It has depth because it sends the reader's search to an external geocoding service, receives coordinates for a matching address, and uses those coordinates to reposition and zoom the map.
+
+I will know it works when a valid address is found and the map zooms to the returned location.
+
+My edge case is an address that cannot be found or a geocoding service that is unavailable. The page should show a clear message and remain usable without a console error.
+
+### A3 feature tests
+
+1. **Search for a valid address in Greece.** Expected: The map zooms to the returned location and the page indicates that the address was found.
+2. **Search for a different valid address, such as one written in Greek or as a partial address.** Expected: The map zooms to the new matching location.
+3. **Search for an invalid or unrecognized address.** Expected: A clear “address not found” message appears, the map does not jump to an unrelated place, and there is no console error.
