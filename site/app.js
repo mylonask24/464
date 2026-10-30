@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cumulativeTotal = document.getElementById('cumulativeTotal');
 
   if (status) {
-    status.textContent = 'Approximate municipality-level map • reviewed boundary matches only';
+    status.textContent = 'Approximate municipality-level map • 302 of 303 municipality names mapped';
   }
 
   if (period) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (coverage) {
-    coverage.textContent = 'Approved municipality matches';
+    coverage.textContent = '302 of 303 municipality names mapped';
   }
 
   if (method) {
