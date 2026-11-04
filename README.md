@@ -37,6 +37,18 @@ It handles an address that cannot be found or an unavailable geocoding service b
 
 ### A3 feature tests
 
-1. **Search for a valid address in Greece.** Expected: The map zooms to the returned location and the page indicates that the address was found.
-2. **Search for a different valid address, such as one written in Greek or as a partial address.** Expected: The map zooms to the new matching location.
-3. **Search for an invalid or unrecognized address.** Expected: A clear “address not found” message appears, the map does not jump to an unrelated place, and there is no console error.
+1. **Search for a valid address in Greece.** Expected: The map zooms to the returned location and the page indicates that the address was found. PASS
+2. **Search for a different valid address, such as one written in Greek or as a partial address.** Expected: The map zooms to the new matching location. PASS
+3. **Search for an invalid or unrecognized address.** Expected: A clear “address not found” message appears, the map does not jump to an unrelated place, and there is no console error. PASS 
+
+## Pre-flight report (Lab 7)
+| Check | Result | What I did |
+| --- | --- | --- |
+| 1. Cold start | pass | fixed in commit "none" / none |
+| 2. Read every label | pass | Checked the header, panel, legend, and municipality popups on the published map; labels were readable and no `undefined`, `null`, `NaN`, or `[object Object]` appeared. |
+| 3. Ask twice | pass | Searched for two different locations in Greece; the map zoomed to each location successfully. |
+| 4. The edge | pass | Clicking an empty map area opened no popup; searching for Paris, France returned “No addresses in Greece found. Try again”; moving the year slider to its end displayed the cumulative information through the selected year. |
+| 5. The data does not come | pass | Blocked `yearly_fire_summary.json` in DevTools and reloaded; the yearly summary displayed N/A/dashes while the rest of the map remained usable. Unblocked the request afterward. |
+| 6. On a phone (size view and my phone) | pass | Used Chrome DevTools device mode at about 375 px wide and reloaded; all page content and controls fit on screen. |
+| 7. Mouse in my pocket | pass | Used Tab to reach all controls; focus was visible, and Enter/Space activated the focused controls. |
+| 8. Accessibility audit | pass | Accessibility audit reported no issues and scored 99. |
