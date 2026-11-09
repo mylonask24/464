@@ -1,7 +1,23 @@
 [
-  {"year": 2014, "incident_count": 6832, "total_burned_ha": 193187.33, "cumulative_burned_ha": 193187.33},
-  {"year": 2015, "incident_count": 8118, "total_burned_ha": 170858.34, "cumulative_burned_ha": 364045.67},
-  {"year": 2016, "incident_count": 10259, "total_burned_ha": 420010.74, "cumulative_burned_ha": 784056.41},
-  {"year": 2017, "incident_count": 10356, "total_burned_ha": 231322.5, "cumulative_burned_ha": 1015378.91},
-  {"year": 2018, "incident_count": 8006, "total_burned_ha": 193816.27, "cumulative_burned_ha": 1209195.18}
+  {"year": 2006, "fire_count": 22, "total_burned_ha": 16294, "cumulative_burned_ha": 16294},
+  {"year": 2007, "fire_count": 139, "total_burned_ha": 271715, "cumulative_burned_ha": 288009},
+  {"year": 2008, "fire_count": 46, "total_burned_ha": 24988, "cumulative_burned_ha": 312997},
+  {"year": 2009, "fire_count": 46, "total_burned_ha": 42807, "cumulative_burned_ha": 355804},
+  {"year": 2010, "fire_count": 21, "total_burned_ha": 6472, "cumulative_burned_ha": 362276},
+  {"year": 2011, "fire_count": 80, "total_burned_ha": 35713, "cumulative_burned_ha": 397989},
+  {"year": 2012, "fire_count": 83, "total_burned_ha": 52487, "cumulative_burned_ha": 450476},
+  {"year": 2013, "fire_count": 32, "total_burned_ha": 19762, "cumulative_burned_ha": 470238},
+  {"year": 2014, "fire_count": 31, "total_burned_ha": 14815, "cumulative_burned_ha": 485053},
+  {"year": 2015, "fire_count": 27, "total_burned_ha": 11613, "cumulative_burned_ha": 496666},
+  {"year": 2016, "fire_count": 52, "total_burned_ha": 31707, "cumulative_burned_ha": 528373},
+  {"year": 2017, "fire_count": 57, "total_burned_ha": 20041, "cumulative_burned_ha": 548414},
+  {"year": 2018, "fire_count": 33, "total_burned_ha": 12037, "cumulative_burned_ha": 560451},
+  {"year": 2019, "fire_count": 53, "total_burned_ha": 10736, "cumulative_burned_ha": 571187},
+  {"year": 2020, "fire_count": 88, "total_burned_ha": 14915, "cumulative_burned_ha": 586102},
+  {"year": 2021, "fire_count": 85, "total_burned_ha": 130744, "cumulative_burned_ha": 716846},
+  {"year": 2022, "fire_count": 66, "total_burned_ha": 22480, "cumulative_burned_ha": 739326},
+  {"year": 2023, "fire_count": 56, "total_burned_ha": 174773, "cumulative_burned_ha": 914099},
+  {"year": 2024, "fire_count": 86, "total_burned_ha": 41948, "cumulative_burned_ha": 956047},
+  {"year": 2025, "fire_count": 69, "total_burned_ha": 47819, "cumulative_burned_ha": 1003866},
+  {"year": 2026, "fire_count": 56, "total_burned_ha": 35321, "cumulative_burned_ha": 1039187}
 ]

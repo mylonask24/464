@@ -5,14 +5,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const method = document.getElementById('method');
   const yearSlider = document.getElementById('yearSlider');
   const summaryYear = document.getElementById('summaryYear');
-  const incidentCount = document.getElementById('incidentCount');
+  const fireCount = document.getElementById('fireCount');
+  const fireCountLabel = document.getElementById('fireCountLabel');
   const yearTotal = document.getElementById('yearTotal');
+  const yearTotalLabel = document.getElementById('yearTotalLabel');
   const cumulativeTotal = document.getElementById('cumulativeTotal');
+  const cumulativeTotalLabel = document.getElementById('cumulativeTotalLabel');
+  const mapHeading = document.getElementById('mapHeading');
   const addressSearchForm = document.getElementById('addressSearchForm');
   const addressInput = document.getElementById('addressInput');
   const addressSearchButton = document.getElementById('addressSearchButton');
   const addressSearchStatus = document.getElementById('addressSearchStatus');
   const fireMap = document.getElementById('fireMap');
+  const resetMapButton = document.getElementById('resetMapButton');
+  const mapResetStatus = document.getElementById('mapResetStatus');
   const comparisonForm = document.getElementById('comparisonForm');
   const comparisonAddressA = document.getElementById('comparisonAddressA');
   const comparisonAddressB = document.getElementById('comparisonAddressB');
@@ -23,31 +29,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const comparisonStatusDefault = 'Address searches go to OpenStreetMap Nominatim. Do not enter sensitive personal information.';
   const geocodeCache = new Map();
   const comparisonRequests = new Map();
+  const nearbyRequests = new Map();
   let mapReady = false;
-  let pendingLocation = null;
+  let pendingMapYear = null;
   let lastGeocodeRequestAt = 0;
   let comparisonRequestNumber = 0;
   let activeComparison = 0;
 
-  const moveMapToLocation = location => {
-    if (!fireMap?.contentWindow) {
-      return;
-    }
-
-    fireMap.contentWindow.postMessage({
-      type: 'geocode-result',
-      lat: location.lat,
-      lon: location.lon,
-      zoom: 14
-    }, '*');
-  };
-
   if (fireMap) {
     fireMap.addEventListener('load', () => {
       mapReady = true;
-      if (pendingLocation) {
-        moveMapToLocation(pendingLocation);
-        pendingLocation = null;
+      if (pendingMapYear !== null) {
+        fireMap.contentWindow.postMessage({
+          type: 'selected-year',
+          year: pendingMapYear
+        }, '*');
+      }
+    });
+  }
+
+  function showMapYear(year) {
+    if (mapHeading) {
+      mapHeading.textContent = year === 'all'
+        ? 'Satellite-mapped burned areas (all years, 2006–2026)'
+        : `Satellite-mapped burned areas (${year})`;
+    }
+    if (mapReady && fireMap?.contentWindow) {
+      fireMap.contentWindow.postMessage({ type: 'selected-year', year }, '*');
+    } else {
+      pendingMapYear = year;
+    }
+  }
+
+  if (resetMapButton && mapResetStatus) {
+    resetMapButton.addEventListener('click', async () => {
+      try {
+        await waitForMap();
+        fireMap.contentWindow.postMessage({ type: 'reset-map-view' }, '*');
+        mapResetStatus.textContent = 'Map view reset to Greece.';
+      } catch (error) {
+        console.error(error);
+        mapResetStatus.textContent = 'The map is not available. Please try again shortly.';
       }
     });
   }
@@ -134,8 +156,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const requestId = `${Date.now()}-${++comparisonRequestNumber}`;
       const timeout = setTimeout(() => {
         comparisonRequests.delete(requestId);
-        reject(new Error('The map did not return municipality data.'));
-      }, 12000);
+        reject(new Error('The map did not return comparison and nearby-perimeter data.'));
+      }, 30000);
 
       comparisonRequests.set(requestId, result => {
         clearTimeout(timeout);
@@ -144,7 +166,31 @@ document.addEventListener('DOMContentLoaded', () => {
       fireMap.contentWindow.postMessage({
         type: 'compare-locations',
         requestId,
-        locations: locations.map(({ lat, lon }) => ({ lat, lon }))
+        locations: locations.map(({ lat, lon, label }) => ({ lat, lon, label }))
+      }, '*');
+    }));
+  }
+
+  function requestNearbyPerimeters(location) {
+    return waitForMap().then(() => new Promise((resolve, reject) => {
+      const requestId = `${Date.now()}-${++comparisonRequestNumber}`;
+      const timeout = setTimeout(() => {
+        nearbyRequests.delete(requestId);
+        reject(new Error('The map did not return nearby perimeter data.'));
+      }, 30000);
+
+      nearbyRequests.set(requestId, result => {
+        clearTimeout(timeout);
+        if (result.error) {
+          reject(new Error('Unable to find nearby EFFIS perimeters.'));
+          return;
+        }
+        resolve(result.nearby);
+      });
+      fireMap.contentWindow.postMessage({
+        type: 'find-nearby-perimeters',
+        requestId,
+        location: { lat: location.lat, lon: location.lon, label: location.label }
       }, '*');
     }));
   }
@@ -154,13 +200,41 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const data = event.data;
-    if (!data || data.type !== 'comparison-result' || !comparisonRequests.has(data.requestId)) {
+    if (!data) {
+      return;
+    }
+
+    if (data.type === 'selected-year-result') {
+      const allYearsSelected = Number(yearSlider?.value) === Number(yearSlider?.max);
+      if (allYearsSelected ? data.year !== 'all' : Number(data.year) !== Number(yearSlider?.value)) {
+        return;
+      }
+      if (status) {
+        status.textContent = data.error
+          ? `Unable to load EFFIS perimeters for ${data.year === 'all' ? 'all years' : data.year}.`
+          : `${data.year === 'all' ? '2006–2026' : data.year}: ${new Intl.NumberFormat('en-US').format(data.count)} satellite-mapped perimeters; municipality shading updated`;
+      }
+      if (allYearsSelected && !data.error && cumulativeTotal && cumulativeTotalLabel) {
+        cumulativeTotalLabel.textContent = 'Perimeters shown on map';
+        cumulativeTotal.textContent = new Intl.NumberFormat('en-US').format(data.count);
+      }
+      return;
+    }
+
+    if (data.type === 'nearby-perimeters-result' && nearbyRequests.has(data.requestId)) {
+      const resolve = nearbyRequests.get(data.requestId);
+      nearbyRequests.delete(data.requestId);
+      resolve(data);
+      return;
+    }
+
+    if (data.type !== 'comparison-result' || !comparisonRequests.has(data.requestId)) {
       return;
     }
 
     const resolve = comparisonRequests.get(data.requestId);
     comparisonRequests.delete(data.requestId);
-    resolve(data.matches);
+    resolve(data);
   });
 
   if (addressSearchForm && addressInput && addressSearchButton && addressSearchStatus) {
@@ -185,12 +259,10 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        if (mapReady) {
-          moveMapToLocation(location);
-        } else {
-          pendingLocation = location;
-        }
-        addressSearchStatus.textContent = `Map moved to: ${location.label}`;
+        const nearby = await requestNearbyPerimeters(location);
+        addressSearchStatus.textContent = nearby.length
+          ? `Map moved to: ${location.label}. The popup shows the ${nearby.length} closest mapped perimeter${nearby.length === 1 ? '' : 's'} across all years.`
+          : `Map moved to: ${location.label}. No mapped EFFIS perimeters were found.`;
         addressSearchStatus.dataset.state = 'success';
       } catch (error) {
         if (error.name === 'AbortError') {
@@ -267,10 +339,14 @@ document.addEventListener('DOMContentLoaded', () => {
           return;
         }
 
-        const matches = await requestMunicipalityComparison([locationA, locationB]);
+        const comparison = await requestMunicipalityComparison([locationA, locationB]);
         if (requestNumber !== activeComparison) {
           return;
         }
+        if (comparison.error) {
+          throw new Error('The map could not find nearby EFFIS perimeters.');
+        }
+        const matches = comparison.matches;
         if (!Array.isArray(matches) || matches.length !== 2 || matches.some(match => !match)) {
           throw new Error('The map returned incomplete municipality data.');
         }
@@ -303,7 +379,9 @@ document.addEventListener('DOMContentLoaded', () => {
           : `${areaA > areaB ? matches[0].municipality : matches[1].municipality} had ${formatArea(difference)} more reported burned area during 2014–2018.`;
         document.getElementById('comparisonDifference').textContent = differenceText;
         comparisonResults.hidden = false;
-        comparisonStatus.textContent = 'Comparison complete. The map shows both searched locations.';
+        comparisonStatus.textContent = comparison.nearby?.some(results => results.length)
+          ? 'Comparison complete. Each map popup shows the closest EFFIS mapped perimeters across all years.'
+          : 'Comparison complete. No mapped EFFIS perimeters were found near these locations.';
         comparisonStatus.dataset.state = 'success';
       } catch (error) {
         if (requestNumber !== activeComparison) {
@@ -324,20 +402,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (status) {
-    status.textContent = 'Approximate municipality-level map • 302 of 303 municipality names mapped';
-  }
-
   if (period) {
-    period.textContent = '2014–2018';
+    period.textContent = '2006–2026';
   }
 
   if (coverage) {
-    coverage.textContent = '302 of 303 municipality names mapped';
+    coverage.textContent = 'EFFIS mapped perimeters';
   }
 
   if (method) {
-    method.textContent = 'GeoBoundaries crosswalk + burned area totals';
+    method.textContent = 'Satellite imagery';
   }
 
   async function loadYearlyData() {
@@ -353,30 +427,67 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const numberFormat = new Intl.NumberFormat('en-US');
       const formatArea = value => `${numberFormat.format(Number(value).toFixed(2))} ha`;
+      const firstYear = Math.min(...data.map(item => Number(item.year)));
+      const lastYear = Math.max(...data.map(item => Number(item.year)));
+      const allYearsValue = lastYear + 1;
+      const cumulativeRecord = data.find(item => Number(item.year) === lastYear);
 
       const updateSummary = () => {
         const year = Number(yearSlider.value);
-        const record = data.find(item => Number(item.year) === year) || data[data.length - 1];
+        const allYearsSelected = year === allYearsValue;
+        const record = allYearsSelected
+          ? cumulativeRecord
+          : data.find(item => Number(item.year) === year);
 
         if (!record) {
           return;
         }
 
-        if (summaryYear) summaryYear.textContent = record.year;
-        if (incidentCount) incidentCount.textContent = numberFormat.format(record.incident_count);
-        if (yearTotal) yearTotal.textContent = formatArea(record.total_burned_ha);
-        if (cumulativeTotal) cumulativeTotal.textContent = formatArea(record.cumulative_burned_ha);
+        if (summaryYear) summaryYear.textContent = allYearsSelected
+          ? `All years (${firstYear}–${lastYear})`
+          : String(record.year);
+        yearSlider.setAttribute('aria-valuetext', allYearsSelected
+          ? `All years, ${firstYear} through ${lastYear}`
+          : String(record.year));
+        if (fireCount) {
+          const count = allYearsSelected
+            ? data.reduce((sum, item) => sum + Number(item.fire_count), 0)
+            : Number(record.fire_count);
+          fireCount.textContent = numberFormat.format(count);
+        }
+        if (fireCountLabel) {
+          fireCountLabel.textContent = allYearsSelected
+            ? 'Annual mapped-fire counts summed'
+            : 'Mapped fires';
+        }
+        if (yearTotal) {
+          yearTotal.textContent = formatArea(allYearsSelected
+            ? record.cumulative_burned_ha
+            : record.total_burned_ha);
+        }
+        if (yearTotalLabel) {
+          yearTotalLabel.textContent = allYearsSelected
+            ? `Burned area, ${firstYear}–${lastYear}`
+            : 'Burned area in selected year';
+        }
+        if (cumulativeTotal && cumulativeTotalLabel) {
+          cumulativeTotalLabel.textContent = allYearsSelected
+            ? 'Perimeters shown on map'
+            : 'Cumulative area since 2006';
+          cumulativeTotal.textContent = allYearsSelected ? 'Loading…' : formatArea(record.cumulative_burned_ha);
+        }
+        showMapYear(allYearsSelected ? 'all' : year);
       };
 
-      yearSlider.min = Math.min(...data.map(item => Number(item.year)));
-      yearSlider.max = Math.max(...data.map(item => Number(item.year)));
-      yearSlider.value = String(Math.max(...data.map(item => Number(item.year))));
+      yearSlider.min = String(firstYear);
+      yearSlider.max = String(allYearsValue);
+      yearSlider.value = String(lastYear);
       yearSlider.addEventListener('input', updateSummary);
       updateSummary();
     } catch (error) {
       console.error(error);
       if (summaryYear) summaryYear.textContent = 'N/A';
-      if (incidentCount) incidentCount.textContent = '—';
+      if (fireCount) fireCount.textContent = '—';
       if (yearTotal) yearTotal.textContent = '—';
       if (cumulativeTotal) cumulativeTotal.textContent = '—';
     }

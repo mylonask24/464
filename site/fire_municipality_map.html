@@ -4,6 +4,7 @@
     
     <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/proj4@2.11.0/dist/proj4.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
@@ -32,6 +33,31 @@
                 height: 100%;
                 margin: 0;
                 padding: 0;
+            }
+            </style>
+            <style>
+            .municipality-legend {
+                background: rgba(255,255,255,.94);
+                padding: 8px 10px;
+                border-radius: 6px;
+                box-shadow: 0 1px 5px rgba(0,0,0,.35);
+                color: #23332d;
+                font: 12px/1.5 Arial, sans-serif;
+            }
+            .municipality-legend div { white-space: nowrap; }
+            .municipality-legend i {
+                display: inline-block;
+                width: 12px;
+                height: 12px;
+                margin-right: 6px;
+                border: 1px solid #60726b;
+                vertical-align: -2px;
+            }
+            .municipality-legend small {
+                display: block;
+                max-width: 180px;
+                margin-top: 4px;
+                color: #52635b;
             }
             </style>
 
@@ -75,7 +101,206 @@
 </body>
 <script>
     
-var comparisonMarkers = null;
+var effisPerimetersLayer = null;
+var effisFeaturesPromise = null;
+var effisMunicipalDataPromise = null;
+var effisMunicipalLayer = null;
+var effisMunicipalLegend = null;
+var effisUnassignedPerimeterCount = 0;
+var displayedYearRequest = 0;
+var addressOverlayRequest = 0;
+var addressMarkers = null;
+var projectedFeaturesByYear = new Map();
+proj4.defs("EPSG:3035", "+proj=laea +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs +type=crs");
+
+function projectEffisCoordinates(coordinates) {
+    if (typeof coordinates[0] === "number") {
+        const [lon, lat] = proj4("EPSG:3035", "EPSG:4326", coordinates);
+        return [lon, lat, ...coordinates.slice(2)];
+    }
+    return coordinates.map(projectEffisCoordinates);
+}
+
+function loadEffisFeatures() {
+    if (!effisFeaturesPromise) {
+        effisFeaturesPromise = fetch("effis_burned_areas.geojson").then(response => {
+            if (!response.ok) {
+                throw new Error(`EFFIS data request returned HTTP ${response.status}.`);
+            }
+            return response.json();
+        }).then(collection => {
+            if (!collection || collection.type !== "FeatureCollection" || !Array.isArray(collection.features)) {
+                throw new Error("EFFIS data is not a valid feature collection.");
+            }
+            return collection.features;
+        }).catch(error => {
+            effisFeaturesPromise = null;
+            throw error;
+        });
+    }
+    return effisFeaturesPromise;
+}
+
+function loadEffisMunicipalData() {
+    if (!effisMunicipalDataPromise) {
+        effisMunicipalDataPromise = fetch("effis_municipal_yearly.json").then(response => {
+            if (!response.ok) {
+                throw new Error(`EFFIS municipality data request returned HTTP ${response.status}.`);
+            }
+            return response.json();
+        }).then(data => {
+            if (!data || !Array.isArray(data.municipalities)) {
+                throw new Error("EFFIS municipality data is not valid.");
+            }
+            return data;
+        }).catch(error => {
+            effisMunicipalDataPromise = null;
+            throw error;
+        });
+    }
+    return effisMunicipalDataPromise;
+}
+
+function styleEffisMunicipalities(feature) {
+    const area = Number(feature.properties.effisAreaHa);
+    if (!Number.isFinite(area) || area <= 0) {
+        return { color: "#60726b", fillColor: "#dfe7e3", fillOpacity: 0.3, weight: 0.7 };
+    }
+    const colorIndex = effisMunicipalBreaks.findIndex(value => area <= value);
+    return {
+        color: "#305047",
+        fillColor: effisMunicipalColors[colorIndex < 0 ? effisMunicipalColors.length - 1 : colorIndex],
+        fillOpacity: 0.68,
+        weight: 0.8
+    };
+}
+
+var effisMunicipalBreaks = [];
+var effisMunicipalColors = ["#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026"];
+
+function updateEffisMunicipalLegend(year) {
+    if (!effisMunicipalLegend) return;
+    const container = effisMunicipalLegend.getContainer();
+    const period = year === "all" ? "2006–2026 cumulative" : String(year);
+    const thresholds = effisMunicipalBreaks;
+    const labels = thresholds.map((threshold, index) => {
+        const minimum = index === 0 ? 0 : thresholds[index - 1];
+        return `${new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(minimum)}–${new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(threshold)} ha`;
+    });
+    labels.push(`>${new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(thresholds[thresholds.length - 1] || 0)} ha`);
+    container.replaceChildren();
+    const heading = document.createElement("strong");
+    heading.textContent = `EFFIS municipal area · ${period}`;
+    container.appendChild(heading);
+    const zero = document.createElement("div");
+    zero.innerHTML = '<i style="background:#dfe7e3"></i>No mapped area';
+    container.appendChild(zero);
+    effisMunicipalColors.forEach((color, index) => {
+        const row = document.createElement("div");
+        const swatch = document.createElement("i");
+        swatch.style.backgroundColor = color;
+        row.appendChild(swatch);
+        row.appendChild(document.createTextNode(labels[index]));
+        container.appendChild(row);
+    });
+    const note = document.createElement("small");
+    note.textContent = `Quantile ranges; area split by overlap. ${effisUnassignedPerimeterCount} perimeters outside mapped boundaries are excluded.`;
+    container.appendChild(note);
+}
+
+async function updateEffisMunicipalities(year, data) {
+    const source = data || await loadEffisMunicipalData();
+    effisUnassignedPerimeterCount = Number(source.metadata && source.metadata.unassignedPerimeters) || 0;
+    const areaForYear = municipality => year === "all"
+        ? Object.values(municipality.yearlyAreas).reduce((sum, area) => sum + Number(area), 0)
+        : Number(municipality.yearlyAreas[String(year)] || 0);
+    const areaByShape = new Map(source.municipalities.map(municipality => [
+        municipality.shapeID,
+        areaForYear(municipality)
+    ]));
+    const features = geo_json_cbe74f7f65f655d5f1196ab39c3ccb8f.toGeoJSON().features.map(feature => ({
+        ...feature,
+        properties: {
+            ...feature.properties,
+            effisAreaHa: areaByShape.get(feature.properties.shapeID) || 0
+        }
+    }));
+    const positiveAreas = features.map(feature => feature.properties.effisAreaHa)
+        .filter(area => area > 0)
+        .sort((first, second) => first - second);
+    effisMunicipalBreaks = [0.2, 0.4, 0.6, 0.8].map(fraction =>
+        positiveAreas[Math.min(positiveAreas.length - 1, Math.ceil(positiveAreas.length * fraction) - 1)] || 0
+    );
+
+    effisMunicipalLayer.clearLayers();
+    effisMunicipalLayer.addData({ type: "FeatureCollection", features });
+    effisMunicipalLayer.setStyle(styleEffisMunicipalities);
+    effisMunicipalLayer.eachLayer(layer => {
+        const name = layer.feature.properties.shapeName || "Unknown municipality";
+        const area = Number(layer.feature.properties.effisAreaHa);
+        const period = year === "all" ? "2006–2026 cumulative" : String(year);
+        const tooltip = document.createElement("div");
+        const title = document.createElement("strong");
+        title.textContent = name;
+        tooltip.appendChild(title);
+        tooltip.appendChild(document.createElement("br"));
+        tooltip.appendChild(document.createTextNode(`EFFIS mapped burned area (${period}): ${new Intl.NumberFormat("en-US", { maximumFractionDigits: 2 }).format(area)} ha`));
+        layer.bindTooltip(tooltip);
+    });
+    updateEffisMunicipalLegend(year);
+
+    return {
+        municipalityCount: features.length,
+        excludedPerimeterCount: source.metadata.unassignedPerimeters
+    };
+}
+
+async function showEffisYear(year) {
+    const request = ++displayedYearRequest;
+    try {
+        const [features, municipalData] = await Promise.all([
+            loadEffisFeatures(),
+            loadEffisMunicipalData()
+        ]);
+        if (request !== displayedYearRequest) return;
+
+        let projected = projectedFeaturesByYear.get(year);
+        if (!projected) {
+            projected = features
+                .filter(feature => year === "all"
+                    || Number(String(feature.properties && feature.properties.initialdate || "").slice(0, 4)) === year)
+                .map(feature => ({
+                    ...feature,
+                    geometry: {
+                        ...feature.geometry,
+                        coordinates: projectEffisCoordinates(feature.geometry.coordinates)
+                    }
+                }));
+            projectedFeaturesByYear.set(year, projected);
+        }
+
+        if (request !== displayedYearRequest) return;
+        effisPerimetersLayer.clearLayers();
+        effisPerimetersLayer.addData({ type: "FeatureCollection", features: projected });
+        const municipalSummary = await updateEffisMunicipalities(year, municipalData);
+        if (request !== displayedYearRequest) return;
+        window.parent.postMessage({
+            type: "selected-year-result",
+            year,
+            count: projected.length,
+            municipalityCount: municipalSummary.municipalityCount,
+            excludedPerimeterCount: municipalSummary.excludedPerimeterCount
+        }, "*");
+    } catch (error) {
+        console.error(error);
+        window.parent.postMessage({
+            type: "selected-year-result",
+            year,
+            count: 0,
+            error: true
+        }, "*");
+    }
+}
 
 function pointInRing(lon, lat, ring) {
     let inside = false;
@@ -106,6 +331,178 @@ function pointInGeometry(lon, lat, geometry) {
     return false;
 }
 
+function distanceToSegmentSquared(x, y, start, end) {
+    const dx = end[0] - start[0];
+    const dy = end[1] - start[1];
+    const lengthSquared = dx * dx + dy * dy;
+    const fraction = lengthSquared === 0
+        ? 0
+        : Math.max(0, Math.min(1, ((x - start[0]) * dx + (y - start[1]) * dy) / lengthSquared));
+    const offsetX = x - (start[0] + fraction * dx);
+    const offsetY = y - (start[1] + fraction * dy);
+    return offsetX * offsetX + offsetY * offsetY;
+}
+
+function ringDistanceSquared(x, y, ring) {
+    let minimum = Infinity;
+    for (let index = 0; index < ring.length; index += 1) {
+        const distance = distanceToSegmentSquared(x, y, ring[index], ring[(index + 1) % ring.length]);
+        if (distance < minimum) minimum = distance;
+    }
+    return minimum;
+}
+
+function polygonDistanceSquared(x, y, rings) {
+    if (pointInPolygon(x, y, rings)) return 0;
+    return Math.min(...rings.map(ring => ringDistanceSquared(x, y, ring)));
+}
+
+function geometryDistanceSquared(x, y, geometry) {
+    if (!geometry) return Infinity;
+    if (geometry.type === "Polygon") {
+        return polygonDistanceSquared(x, y, geometry.coordinates);
+    }
+    if (geometry.type === "MultiPolygon") {
+        return Math.min(...geometry.coordinates.map(polygon => polygonDistanceSquared(x, y, polygon)));
+    }
+    return Infinity;
+}
+
+async function nearestPerimetersAt(lon, lat) {
+    const features = await loadEffisFeatures();
+    const [x, y] = proj4("EPSG:4326", "EPSG:3035", [lon, lat]);
+    return features.map(feature => {
+        const properties = feature.properties || {};
+        return {
+            id: properties.id,
+            initialdate: properties.initialdate,
+            finaldate: properties.finaldate,
+            areaHa: Number(properties.area_ha),
+            mapSource: properties.map_source || "EFFIS",
+            distanceMeters: Math.sqrt(geometryDistanceSquared(x, y, feature.geometry))
+        };
+    }).filter(perimeter => Number.isFinite(perimeter.distanceMeters))
+        .sort((first, second) => first.distanceMeters - second.distanceMeters)
+        .slice(0, 3);
+}
+
+function createNearbyPopup(label, perimeters) {
+    const content = document.createElement("div");
+    const heading = document.createElement("strong");
+    heading.textContent = `Closest mapped perimeters to ${label}`;
+    content.appendChild(heading);
+
+    const note = document.createElement("p");
+    note.textContent = "EFFIS satellite-mapped burned areas across all years (2006–2026), not a complete list of fire incidents.";
+    content.appendChild(note);
+
+    if (!perimeters.length) {
+        const empty = document.createElement("p");
+        empty.textContent = "No mapped perimeter was found in the supplied EFFIS data.";
+        content.appendChild(empty);
+        return content;
+    }
+
+    const list = document.createElement("ol");
+    perimeters.forEach(perimeter => {
+        const item = document.createElement("li");
+        const year = String(perimeter.initialdate || "").slice(0, 4) || "Unknown year";
+        const mappedDate = String(perimeter.initialdate || "").slice(0, 10) || "Unknown date";
+        const distance = perimeter.distanceMeters < 1000
+            ? `${Math.round(perimeter.distanceMeters)} m`
+            : `${(perimeter.distanceMeters / 1000).toFixed(1)} km`;
+        const area = Number.isFinite(perimeter.areaHa)
+            ? `${new Intl.NumberFormat("en-US").format(perimeter.areaHa)} ha`
+            : "Unknown area";
+        item.textContent = `${year} · ${distance} from mapped perimeter · ${area} · ${perimeter.mapSource} · mapped ${mappedDate}`;
+        list.appendChild(item);
+    });
+    content.appendChild(list);
+    return content;
+}
+
+function clearAddressMarkers() {
+    if (addressMarkers) {
+        map_dc0dace36005c83eac6641605489afdb.removeLayer(addressMarkers);
+        addressMarkers = null;
+    }
+}
+
+async function showNearbyPerimeterForAddress(data) {
+    const location = data.location;
+    const lat = Number(location && location.lat);
+    const lon = Number(location && location.lon);
+    if (!Number.isFinite(lat) || lat < -90 || lat > 90 || !Number.isFinite(lon) || lon < -180 || lon > 180) return;
+
+    const request = ++addressOverlayRequest;
+    const label = String(location.label || "searched address");
+    clearAddressMarkers();
+    map_dc0dace36005c83eac6641605489afdb.flyTo([lat, lon], 14, {duration: 1.2});
+    const marker = L.marker([lat, lon]);
+    addressMarkers = L.featureGroup([marker]).addTo(map_dc0dace36005c83eac6641605489afdb);
+
+    try {
+        const nearby = await nearestPerimetersAt(lon, lat);
+        if (request !== addressOverlayRequest) return;
+        marker.bindPopup(createNearbyPopup(label, nearby), {maxWidth: 340}).openPopup();
+        window.parent.postMessage({
+            type: "nearby-perimeters-result",
+            requestId: data.requestId,
+            nearby
+        }, "*");
+    } catch (error) {
+        console.error(error);
+        if (request === addressOverlayRequest) {
+            marker.bindPopup("Nearby EFFIS perimeter data could not be loaded.").openPopup();
+        }
+        window.parent.postMessage({
+            type: "nearby-perimeters-result",
+            requestId: data.requestId,
+            error: true
+        }, "*");
+    }
+}
+
+async function compareLocationsWithNearbyPerimeters(data, locations) {
+    const request = ++addressOverlayRequest;
+    const matches = locations.map(location => municipalityAt(location.lon, location.lat));
+    clearAddressMarkers();
+    const markers = locations.map((location, index) => {
+        const label = String(location.label || `Address ${index === 0 ? "A" : "B"}`);
+        const marker = L.marker([location.lat, location.lon]);
+        marker.bindTooltip(document.createTextNode(label));
+        return marker;
+    });
+    addressMarkers = L.featureGroup(markers).addTo(map_dc0dace36005c83eac6641605489afdb);
+    map_dc0dace36005c83eac6641605489afdb.fitBounds(addressMarkers.getBounds().pad(0.2), {maxZoom: 12});
+
+    try {
+        const nearby = await Promise.all(locations.map(location =>
+            nearestPerimetersAt(location.lon, location.lat)
+        ));
+        if (request !== addressOverlayRequest) return;
+        markers.forEach((marker, index) => {
+            const label = String(locations[index].label || `address ${index === 0 ? "A" : "B"}`);
+            marker.bindPopup(createNearbyPopup(label, nearby[index]), {maxWidth: 340});
+        });
+        markers[0].openPopup();
+        window.parent.postMessage({
+            type: "comparison-result",
+            requestId: data.requestId,
+            matches,
+            nearby
+        }, "*");
+    } catch (error) {
+        console.error(error);
+        window.parent.postMessage({
+            type: "comparison-result",
+            requestId: data.requestId,
+            matches,
+            error: true
+        }, "*");
+    }
+}
+
 function municipalityAt(lon, lat) {
     let match = null;
     geo_json_cbe74f7f65f655d5f1196ab39c3ccb8f.eachLayer(layer => {
@@ -125,19 +522,26 @@ window.addEventListener("message", function (event) {
     const data = event.data;
     if (event.source !== window.parent || !data) return;
 
-    if (data.type === "geocode-result") {
-        const lat = Number(data.lat);
-        const lon = Number(data.lon);
-        const zoom = Number(data.zoom);
-        if (!Number.isFinite(lat) || lat < -90 || lat > 90 || !Number.isFinite(lon) || lon < -180 || lon > 180 || !Number.isFinite(zoom) || zoom < 1 || zoom > 19) return;
-        map_dc0dace36005c83eac6641605489afdb.flyTo([lat, lon], zoom, {duration: 1.2});
+    if (data.type === "find-nearby-perimeters") {
+        showNearbyPerimeterForAddress(data);
         return;
     }
 
     if (data.type === "clear-comparison-markers") {
-        if (comparisonMarkers) {
-            map_dc0dace36005c83eac6641605489afdb.removeLayer(comparisonMarkers);
-            comparisonMarkers = null;
+        addressOverlayRequest += 1;
+        clearAddressMarkers();
+        return;
+    }
+
+    if (data.type === "reset-map-view") {
+        map_dc0dace36005c83eac6641605489afdb.setView([38.3, 23.0], 6);
+        return;
+    }
+
+    if (data.type === "selected-year") {
+        const year = data.year === "all" ? "all" : Number(data.year);
+        if (year === "all" || (Number.isInteger(year) && year >= 2006 && year <= 2026)) {
+            showEffisYear(year);
         }
         return;
     }
@@ -145,24 +549,12 @@ window.addEventListener("message", function (event) {
     if (data.type !== "compare-locations" || !data.requestId || !Array.isArray(data.locations) || data.locations.length !== 2) return;
     const locations = data.locations.map(location => ({
         lat: Number(location.lat),
-        lon: Number(location.lon)
+        lon: Number(location.lon),
+        label: String(location.label || "")
     }));
     if (locations.some(location => !Number.isFinite(location.lat) || location.lat < -90 || location.lat > 90 || !Number.isFinite(location.lon) || location.lon < -180 || location.lon > 180)) return;
 
-    const matches = locations.map(location => municipalityAt(location.lon, location.lat));
-    if (comparisonMarkers) {
-        map_dc0dace36005c83eac6641605489afdb.removeLayer(comparisonMarkers);
-    }
-    comparisonMarkers = L.featureGroup(locations.map((location, index) =>
-        L.marker([location.lat, location.lon]).bindTooltip(`Address ${index === 0 ? "A" : "B"}`)
-    )).addTo(map_dc0dace36005c83eac6641605489afdb);
-    map_dc0dace36005c83eac6641605489afdb.fitBounds(comparisonMarkers.getBounds().pad(0.2), {maxZoom: 12});
-
-    window.parent.postMessage({
-        type: "comparison-result",
-        requestId: data.requestId,
-        matches
-    }, "*");
+    compareLocationsWithNearbyPerimeters(data, locations);
 });
     
             var map_dc0dace36005c83eac6641605489afdb = L.map(
@@ -241,42 +633,44 @@ window.addEventListener("message", function (event) {
 
         
     
-    geo_json_cbe74f7f65f655d5f1196ab39c3ccb8f.bindTooltip(
-    function(layer){
-    let div = L.DomUtil.create('div');
     
-    let handleObject = feature => {
-        if (feature === null) {
-            return '';
-        } else if (typeof(feature)=='object') {
-            return JSON.stringify(feature);
-        } else {
-            return feature;
-        }
-    }
-    let fields = ["shapeName", "total_burned_ha"];
-    let aliases = ["Boundary:", "Total burned area (ha):"];
-    let table = '<table>' +
-        String(
-        fields.map(
-        (v,i)=>
-        `<tr>
-            <th>${aliases[i].toLocaleString()}</th>
-            
-            <td>${handleObject(layer.feature.properties[v]).toLocaleString()}</td>
-        </tr>`).join(''))
-    +'</table>';
-    div.innerHTML=table;
-    
-    return div
-    }
-    ,{
-  "sticky": true,
-  "className": "foliumtooltip",
-});
-                     
-    
-            geo_json_cbe74f7f65f655d5f1196ab39c3ccb8f.addTo(map_dc0dace36005c83eac6641605489afdb);
+            effisMunicipalLayer = L.geoJSON(null, {
+                style: styleEffisMunicipalities
+            }).addTo(map_dc0dace36005c83eac6641605489afdb);
+
+            effisMunicipalLegend = L.control({ position: "bottomleft" });
+            effisMunicipalLegend.onAdd = function () {
+                return L.DomUtil.create("div", "municipality-legend");
+            };
+            effisMunicipalLegend.addTo(map_dc0dace36005c83eac6641605489afdb);
+
+            effisPerimetersLayer = L.geoJSON(null, {
+                style: {
+                    color: "#a63603",
+                    fillColor: "#e6550d",
+                    fillOpacity: 0.16,
+                    weight: 1.2
+                },
+                onEachFeature: function (feature, layer) {
+                    const properties = feature.properties;
+                    const startDate = properties.initialdate ? properties.initialdate.slice(0, 10) : "Unknown";
+                    const endDate = properties.finaldate ? properties.finaldate.slice(0, 10) : startDate;
+                    const area = Number(properties.area_ha);
+                    const tooltip = document.createElement("div");
+                    const title = document.createElement("strong");
+                    title.textContent = "EFFIS burned area";
+                    tooltip.appendChild(title);
+                    tooltip.appendChild(document.createElement("br"));
+                    tooltip.appendChild(document.createTextNode(`First mapped: ${startDate}`));
+                    tooltip.appendChild(document.createElement("br"));
+                    tooltip.appendChild(document.createTextNode(`Last update: ${endDate}`));
+                    tooltip.appendChild(document.createElement("br"));
+                    tooltip.appendChild(document.createTextNode(`Mapped area: ${Number.isFinite(area) ? area.toLocaleString() : "Unknown"} ha`));
+                    tooltip.appendChild(document.createElement("br"));
+                    tooltip.appendChild(document.createTextNode(`Source: ${properties.map_source || "EFFIS"}`));
+                    layer.bindTooltip(tooltip);
+                }
+            }).addTo(map_dc0dace36005c83eac6641605489afdb);
         
     
             var layer_control_10f39af4f6b5dc0ce7689ed0bd09fe3a_layers = {
@@ -284,7 +678,8 @@ window.addEventListener("message", function (event) {
                     "openstreetmap" : tile_layer_603c1cd204830b85d76956ecf9943887,
                 },
                 overlays :  {
-                    "Municipal burned area" : geo_json_cbe74f7f65f655d5f1196ab39c3ccb8f,
+                    "EFFIS mapped area by municipality (selected year)" : effisMunicipalLayer,
+                    "EFFIS burned-area perimeters" : effisPerimetersLayer,
                 },
             };
             let layer_control_10f39af4f6b5dc0ce7689ed0bd09fe3a = L.control.layers(

@@ -223,11 +223,16 @@ h1 {
 }
 
 .search-status,
-.geocoder-attribution {
+.geocoder-attribution,
+.nearby-note {
   margin: 0;
   color: var(--muted);
   font-size: 0.9rem;
   line-height: 1.5;
+}
+
+.nearby-note {
+  margin-top: -8px;
 }
 
 .search-status[data-state="error"] {
@@ -281,6 +286,31 @@ h1 {
   font-weight: 700;
 }
 
+.map-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 10px;
+}
+
+.map-controls button {
+  padding: 9px 13px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: #ffffff;
+  color: var(--primary);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+#mapResetStatus {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
 .geocoder-attribution a {
   color: var(--primary);
 }
@@ -307,6 +337,24 @@ h1 {
   font-size: 0.95rem;
 }
 
+.timeline-attribution {
+  margin: -4px 0 16px;
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.timeline-attribution a {
+  color: var(--primary);
+}
+
+.map-data-note {
+  margin: -4px 0 12px;
+  color: var(--muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
 .eyebrow.secondary {
   color: var(--accent);
   margin-bottom: 6px;
@@ -329,15 +377,25 @@ h1 {
 
 .year-readout {
   display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
   justify-content: center;
   align-items: center;
-  width: 120px;
+  width: fit-content;
+  max-width: 100%;
   padding: 10px 14px;
   border-radius: 999px;
   background: #f7efe4;
   color: var(--primary);
   font-weight: 700;
   font-size: 1.1rem;
+  text-align: center;
+}
+
+.slider-end-note {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 
 .stats-grid {
