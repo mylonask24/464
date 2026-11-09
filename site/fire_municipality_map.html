@@ -75,15 +75,94 @@
 </body>
 <script>
     
-    
+var comparisonMarkers = null;
+
+function pointInRing(lon, lat, ring) {
+    let inside = false;
+    for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+        const [xi, yi] = ring[i];
+        const [xj, yj] = ring[j];
+        const crossesLatitude = (yi > lat) !== (yj > lat);
+        if (crossesLatitude && lon < ((xj - xi) * (lat - yi)) / (yj - yi) + xi) {
+            inside = !inside;
+        }
+    }
+    return inside;
+}
+
+function pointInPolygon(lon, lat, rings) {
+    return rings.length > 0
+        && pointInRing(lon, lat, rings[0])
+        && !rings.slice(1).some(ring => pointInRing(lon, lat, ring));
+}
+
+function pointInGeometry(lon, lat, geometry) {
+    if (geometry.type === "Polygon") {
+        return pointInPolygon(lon, lat, geometry.coordinates);
+    }
+    if (geometry.type === "MultiPolygon") {
+        return geometry.coordinates.some(polygon => pointInPolygon(lon, lat, polygon));
+    }
+    return false;
+}
+
+function municipalityAt(lon, lat) {
+    let match = null;
+    geo_json_cbe74f7f65f655d5f1196ab39c3ccb8f.eachLayer(layer => {
+        const feature = layer.feature;
+        if (match || !feature || !feature.geometry || !pointInGeometry(lon, lat, feature.geometry)) {
+            return;
+        }
+        match = {
+            municipality: feature.properties.shapeName,
+            totalBurnedHa: Number(feature.properties.total_burned_ha)
+        };
+    });
+    return match;
+}
+
 window.addEventListener("message", function (event) {
     const data = event.data;
-    if (event.source !== window.parent || !data || data.type !== "geocode-result") return;
-    const lat = Number(data.lat);
-    const lon = Number(data.lon);
-    const zoom = Number(data.zoom);
-    if (!Number.isFinite(lat) || lat < -90 || lat > 90 || !Number.isFinite(lon) || lon < -180 || lon > 180 || !Number.isFinite(zoom) || zoom < 1 || zoom > 19) return;
-    map_dc0dace36005c83eac6641605489afdb.flyTo([lat, lon], zoom, {duration: 1.2});
+    if (event.source !== window.parent || !data) return;
+
+    if (data.type === "geocode-result") {
+        const lat = Number(data.lat);
+        const lon = Number(data.lon);
+        const zoom = Number(data.zoom);
+        if (!Number.isFinite(lat) || lat < -90 || lat > 90 || !Number.isFinite(lon) || lon < -180 || lon > 180 || !Number.isFinite(zoom) || zoom < 1 || zoom > 19) return;
+        map_dc0dace36005c83eac6641605489afdb.flyTo([lat, lon], zoom, {duration: 1.2});
+        return;
+    }
+
+    if (data.type === "clear-comparison-markers") {
+        if (comparisonMarkers) {
+            map_dc0dace36005c83eac6641605489afdb.removeLayer(comparisonMarkers);
+            comparisonMarkers = null;
+        }
+        return;
+    }
+
+    if (data.type !== "compare-locations" || !data.requestId || !Array.isArray(data.locations) || data.locations.length !== 2) return;
+    const locations = data.locations.map(location => ({
+        lat: Number(location.lat),
+        lon: Number(location.lon)
+    }));
+    if (locations.some(location => !Number.isFinite(location.lat) || location.lat < -90 || location.lat > 90 || !Number.isFinite(location.lon) || location.lon < -180 || location.lon > 180)) return;
+
+    const matches = locations.map(location => municipalityAt(location.lon, location.lat));
+    if (comparisonMarkers) {
+        map_dc0dace36005c83eac6641605489afdb.removeLayer(comparisonMarkers);
+    }
+    comparisonMarkers = L.featureGroup(locations.map((location, index) =>
+        L.marker([location.lat, location.lon]).bindTooltip(`Address ${index === 0 ? "A" : "B"}`)
+    )).addTo(map_dc0dace36005c83eac6641605489afdb);
+    map_dc0dace36005c83eac6641605489afdb.fitBounds(comparisonMarkers.getBounds().pad(0.2), {maxZoom: 12});
+
+    window.parent.postMessage({
+        type: "comparison-result",
+        requestId: data.requestId,
+        matches
+    }, "*");
 });
     
             var map_dc0dace36005c83eac6641605489afdb = L.map(

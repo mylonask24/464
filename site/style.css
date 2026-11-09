@@ -146,6 +146,82 @@ h1 {
   opacity: 0.65;
 }
 
+.comparison-panel {
+  margin: 20px 0 16px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #f8fbf8;
+}
+
+.comparison-panel h3 {
+  margin: 0 0 8px;
+  color: var(--primary);
+}
+
+.comparison-note {
+  margin: 0 0 14px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.comparison-form {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.comparison-addresses {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.comparison-addresses label {
+  display: grid;
+  gap: 7px;
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.comparison-addresses input {
+  min-width: 0;
+  padding: 11px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font: inherit;
+  font-weight: 400;
+}
+
+.comparison-form button {
+  justify-self: start;
+  padding: 11px 16px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.comparison-form button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.comparison-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.comparison-form .comparison-clear {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  color: var(--primary);
+}
+
 .search-status,
 .geocoder-attribution {
   margin: 0;
@@ -160,6 +236,49 @@ h1 {
 
 .search-status[data-state="success"] {
   color: var(--primary);
+}
+
+.comparison-results {
+  margin-top: 16px;
+}
+
+.comparison-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.comparison-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel);
+}
+
+.comparison-card h4 {
+  overflow-wrap: anywhere;
+  margin: 0 0 8px;
+  color: var(--primary);
+}
+
+.comparison-municipality {
+  min-height: 1.4em;
+  margin: 0 0 12px;
+  color: var(--muted);
+}
+
+.comparison-card strong {
+  display: block;
+  margin-top: 6px;
+  color: var(--primary);
+  font-size: 1.35rem;
+}
+
+.comparison-difference {
+  margin: 12px 0 0;
+  color: var(--primary);
+  font-weight: 700;
 }
 
 .geocoder-attribution a {
@@ -276,6 +395,19 @@ iframe {
 
   .address-search-controls {
     flex-direction: column;
+  }
+
+  .comparison-addresses,
+  .comparison-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .comparison-actions {
+    flex-direction: column;
+  }
+
+  .comparison-actions button {
+    width: 100%;
   }
 
   iframe {

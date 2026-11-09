@@ -96,6 +96,65 @@
           Geocoding by <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap contributors</a>.
         </p>
       </form>
+      <section class="comparison-panel" aria-labelledby="comparisonHeading">
+        <h3 id="comparisonHeading">Compare two addresses</h3>
+        <p class="comparison-note">
+          Compare the reported burned-area totals for the municipalities containing each address (2014–2018).
+          These are municipality totals, not fire measurements at the address.
+        </p>
+        <form id="comparisonForm" class="comparison-form" data-geocoder-endpoint="https://nominatim.openstreetmap.org/search">
+          <div class="comparison-addresses">
+            <label>
+              First address
+              <input
+                id="comparisonAddressA"
+                name="addressA"
+                type="search"
+                maxlength="200"
+                placeholder="For example, Syntagma Square, Athens"
+                autocomplete="street-address"
+                required
+              />
+            </label>
+            <label>
+              Second address
+              <input
+                id="comparisonAddressB"
+                name="addressB"
+                type="search"
+                maxlength="200"
+                placeholder="For example, White Tower, Thessaloniki"
+                autocomplete="street-address"
+                required
+              />
+            </label>
+          </div>
+          <div class="comparison-actions">
+            <button id="comparisonButton" type="submit">Compare locations</button>
+            <button id="clearComparisonButton" class="comparison-clear" type="button">Clear comparison</button>
+          </div>
+        </form>
+        <p id="comparisonStatus" class="search-status" role="status" aria-live="polite">
+          Address searches go to OpenStreetMap Nominatim. Do not enter sensitive personal information.
+        </p>
+        <div id="comparisonResults" class="comparison-results" aria-live="polite" hidden>
+          <div class="comparison-cards">
+            <article class="comparison-card">
+              <h4 id="comparisonLabelA">First address</h4>
+              <p id="comparisonMunicipalityA" class="comparison-municipality"></p>
+              <span class="stat-label">Total reported burned area</span>
+              <strong id="comparisonAreaA"></strong>
+            </article>
+            <article class="comparison-card">
+              <h4 id="comparisonLabelB">Second address</h4>
+              <p id="comparisonMunicipalityB" class="comparison-municipality"></p>
+              <span class="stat-label">Total reported burned area</span>
+              <strong id="comparisonAreaB"></strong>
+            </article>
+          </div>
+          <p id="comparisonDifference" class="comparison-difference"></p>
+        </div>
+      </section>
       <iframe
         id="fireMap"
         src="fire_municipality_map.html"

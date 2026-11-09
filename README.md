@@ -2,7 +2,7 @@
 
 ## Project description
 
-This project maps reported wildfire burned area by municipality in Greece from 2014 through 2018. It is intended for geography students and readers interested in the distribution of reported wildfire impacts. Comparing municipalities provides geographic context for the incident records. Hover over a municipality to view its reported burned-area total, or search for an address in Greece to zoom the map to that location. Boundary colors use five quantile classes on a light-yellow-to-dark-red ramp; they summarize reported burned area, not official fire-severity ratings. The map uses administrative polygons because incident records do not include exact fire coordinates or fire-perimeter polygons.
+This project maps reported wildfire burned area by municipality in Greece from 2014 through 2018. It is intended for geography students and readers interested in the distribution of reported wildfire impacts. Comparing municipalities provides geographic context for the incident records. Hover over a municipality to view its reported burned-area total, search for an address in Greece to zoom the map to that location, or compare the municipality-level totals for two addresses. Boundary colors use five quantile classes on a light-yellow-to-dark-red ramp; they summarize reported burned area, not official fire-severity ratings. The map uses administrative polygons because incident records do not include exact fire coordinates or fire-perimeter polygons.
 
 ## Data sources and licenses
 
@@ -40,6 +40,16 @@ It handles an address that cannot be found or an unavailable geocoding service b
 1. **Search for a valid address in Greece.** Expected: The map zooms to the returned location and the page indicates that the address was found. PASS
 2. **Search for a different valid address, such as one written in Greek or as a partial address.** Expected: The map zooms to the new matching location. PASS
 3. **Search for an invalid or unrecognized address.** Expected: A clear “address not found” message appears, the map does not jump to an unrelated place, and there is no console error. PASS 
+
+## A4 feature: Compare two addresses
+
+The comparison form geocodes two submitted addresses in Greece, identifies the municipality containing each point, and compares each municipality's total reported burned area for 2014–2018. The map marks both searched points. These are municipality-wide totals and must not be interpreted as burned area at either address. If an address cannot be geocoded or matched to a boundary, the page displays an error instead of showing an unsupported comparison.
+
+### A4 feature tests
+
+1. **Compare addresses in different municipalities.** Expected: Both municipality names and burned-area totals appear, the difference is stated, and the map shows both locations.
+2. **Compare two addresses in the same municipality.** Expected: Both addresses show the same municipality total and the page reports equal values.
+3. **Submit an address that cannot be found or matched.** Expected: A clear error appears and no incomplete comparison is shown.
 
 ## Pre-flight report (Lab 7)
 | Check | Result | What I did |
