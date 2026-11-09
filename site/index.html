@@ -37,50 +37,6 @@
       </aside>
     </section>
 
-    <section class="timeline-panel">
-      <div class="timeline-header">
-        <div>
-          <p class="eyebrow secondary">Copernicus EFFIS estimates</p>
-          <h2>Satellite-mapped fire history</h2>
-        </div>
-        <p class="timeline-note">
-          Select a year to show its satellite-mapped EFFIS burned-area perimeters and national
-          annual estimates. The final slider stop combines 2006–2026 and shows all perimeters.
-          Cumulative annual fire counts are sums, not unique-fire counts. Perimeters and annual
-          estimates are separate measures; perimeters do not represent every fire, and 2026 is partial.
-        </p>
-      </div>
-      <p class="timeline-attribution">
-        Source: <a href="https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/" target="_blank" rel="noopener noreferrer">Copernicus EFFIS</a>,
-        accessed November 8, 2026. Reuse under
-        <a href="https://forest-fire.emergency.copernicus.eu/about-effis/data-license" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
-      </p>
-
-      <div class="slider-wrap">
-        <label for="yearSlider">Selected year</label>
-        <input id="yearSlider" type="range" min="2006" max="2026" step="1" value="2026" />
-        <div class="year-readout">
-          <span id="summaryYear">2026</span>
-          <span class="slider-end-note">Final stop: all years (2006–2026)</span>
-        </div>
-      </div>
-
-      <div class="stats-grid">
-        <div class="stat-card">
-          <span id="fireCountLabel" class="stat-label">Mapped fires</span>
-          <strong id="fireCount">0</strong>
-        </div>
-        <div class="stat-card">
-          <span id="yearTotalLabel" class="stat-label">Burned area in selected year</span>
-          <strong id="yearTotal">0 ha</strong>
-        </div>
-        <div class="stat-card highlight">
-          <span id="cumulativeTotalLabel" class="stat-label">Cumulative area since 2006</span>
-          <strong id="cumulativeTotal">0 ha</strong>
-        </div>
-      </div>
-    </section>
-
     <section class="map-panel">
       <div class="map-header">
         <h2 id="mapHeading">Satellite-mapped burned areas</h2>
@@ -178,6 +134,49 @@
         different data: fire-service municipality totals from 2014–2018. Use the map's Layers control
         to toggle the EFFIS municipality choropleth and burned-area perimeters independently.
       </p>
+      <section class="timeline-panel" aria-labelledby="timelineHeading">
+        <div class="timeline-header">
+          <div>
+            <p class="eyebrow secondary">Copernicus EFFIS estimates</p>
+            <h2 id="timelineHeading">Satellite-mapped fire history</h2>
+          </div>
+          <p class="timeline-note">
+            Select a year to show its satellite-mapped EFFIS burned-area perimeters and national
+            annual estimates. The final slider stop combines 2006–2026 and shows all perimeters.
+            Cumulative annual fire counts are sums, not unique-fire counts. Perimeters and annual
+            estimates are separate measures; perimeters do not represent every fire, and 2026 is partial.
+          </p>
+        </div>
+        <p class="timeline-attribution">
+          Source: <a href="https://forest-fire.emergency.copernicus.eu/apps/effis.statistics/" target="_blank" rel="noopener noreferrer">Copernicus EFFIS</a>,
+          accessed November 8, 2026. Reuse under
+          <a href="https://forest-fire.emergency.copernicus.eu/about-effis/data-license" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+        </p>
+
+        <div class="slider-wrap">
+          <label for="yearSlider">Selected year</label>
+          <input id="yearSlider" type="range" min="2006" max="2026" step="1" value="2026" />
+          <div class="year-readout">
+            <span id="summaryYear">2026</span>
+            <span class="slider-end-note">Final stop: all years (2006–2026)</span>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span id="fireCountLabel" class="stat-label">Mapped fires</span>
+            <strong id="fireCount">0</strong>
+          </div>
+          <div class="stat-card">
+            <span id="yearTotalLabel" class="stat-label">Burned area in selected year</span>
+            <strong id="yearTotal">0 ha</strong>
+          </div>
+          <div class="stat-card highlight">
+            <span id="cumulativeTotalLabel" class="stat-label">Cumulative area since 2006</span>
+            <strong id="cumulativeTotal">0 ha</strong>
+          </div>
+        </div>
+      </section>
       <div class="map-controls">
         <button id="resetMapButton" type="button">Reset map view</button>
         <p id="mapResetStatus" role="status" aria-live="polite"></p>

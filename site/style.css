@@ -105,6 +105,10 @@ h1 {
   box-shadow: 0 6px 18px rgba(22, 59, 47, 0.06);
 }
 
+.map-panel > .timeline-panel {
+  margin: 20px 0 16px;
+}
+
 .address-search {
   display: grid;
   gap: 8px;
