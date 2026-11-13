@@ -164,13 +164,13 @@ function loadEffisMunicipalData() {
 function styleEffisMunicipalities(feature) {
     const area = Number(feature.properties.effisAreaHa);
     if (!Number.isFinite(area) || area <= 0) {
-        return { color: "#60726b", fillColor: "#dfe7e3", fillOpacity: 0.3, weight: 0.7 };
+        return { color: "#60726b", fillColor: "#dfe7e3", fillOpacity: 0.18, weight: 0.7 };
     }
     const colorIndex = effisMunicipalBreaks.findIndex(value => area <= value);
     return {
         color: "#305047",
         fillColor: effisMunicipalColors[colorIndex < 0 ? effisMunicipalColors.length - 1 : colorIndex],
-        fillOpacity: 0.68,
+        fillOpacity: 0.25,
         weight: 0.8
     };
 }
@@ -592,7 +592,13 @@ window.addEventListener("message", function (event) {
             );
         
     
-            tile_layer_603c1cd204830b85d76956ecf9943887.addTo(map_dc0dace36005c83eac6641605489afdb);
+            var satelliteLayer = L.tileLayer(
+                "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                {
+                    maxZoom: 19,
+                    attribution: "Tiles © Esri"
+                }
+            ).addTo(map_dc0dace36005c83eac6641605489afdb);
         
     
         function geo_json_cbe74f7f65f655d5f1196ab39c3ccb8f_styler(feature) {
@@ -637,6 +643,7 @@ window.addEventListener("message", function (event) {
             effisMunicipalLayer = L.geoJSON(null, {
                 style: styleEffisMunicipalities
             }).addTo(map_dc0dace36005c83eac6641605489afdb);
+            effisMunicipalLayer.setZIndex(250);
 
             effisMunicipalLegend = L.control({ position: "bottomleft" });
             effisMunicipalLegend.onAdd = function () {
@@ -671,11 +678,13 @@ window.addEventListener("message", function (event) {
                     layer.bindTooltip(tooltip);
                 }
             }).addTo(map_dc0dace36005c83eac6641605489afdb);
+            effisPerimetersLayer.setZIndex(350);
         
     
             var layer_control_10f39af4f6b5dc0ce7689ed0bd09fe3a_layers = {
                 base_layers : {
-                    "openstreetmap" : tile_layer_603c1cd204830b85d76956ecf9943887,
+                    "Satellite imagery" : satelliteLayer,
+                    "OpenStreetMap" : tile_layer_603c1cd204830b85d76956ecf9943887,
                 },
                 overlays :  {
                     "EFFIS mapped area by municipality (selected year)" : effisMunicipalLayer,
