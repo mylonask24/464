@@ -164,19 +164,19 @@ function loadEffisMunicipalData() {
 function styleEffisMunicipalities(feature) {
     const area = Number(feature.properties.effisAreaHa);
     if (!Number.isFinite(area) || area <= 0) {
-        return { color: "#60726b", fillColor: "#dfe7e3", fillOpacity: 0.18, weight: 0.7 };
+        return { color: "#64808a", fillColor: "#dff8fc", opacity: 0.65, fillOpacity: 0.12, weight: 0.7 };
     }
     const colorIndex = effisMunicipalBreaks.findIndex(value => area <= value);
     return {
-        color: "#305047",
+        color: "#073b4c",
         fillColor: effisMunicipalColors[colorIndex < 0 ? effisMunicipalColors.length - 1 : colorIndex],
-        fillOpacity: 0.25,
-        weight: 0.8
+        fillOpacity: 0.4,
+        weight: 1.1
     };
 }
 
 var effisMunicipalBreaks = [];
-var effisMunicipalColors = ["#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026"];
+var effisMunicipalColors = ["#b3ecf2", "#72d6e0", "#39b8ca", "#168fa8", "#0d6478"];
 
 function updateEffisMunicipalLegend(year) {
     if (!effisMunicipalLegend) return;
@@ -653,10 +653,10 @@ window.addEventListener("message", function (event) {
 
             effisPerimetersLayer = L.geoJSON(null, {
                 style: {
-                    color: "#a63603",
-                    fillColor: "#e6550d",
-                    fillOpacity: 0.16,
-                    weight: 1.2
+                    color: "#ff2b2b",
+                    fillColor: "#ff5a1f",
+                    fillOpacity: 0.34,
+                    weight: 2
                 },
                 onEachFeature: function (feature, layer) {
                     const properties = feature.properties;
