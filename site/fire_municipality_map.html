@@ -26,6 +26,34 @@
                     top: 0.0%;
                 }
                 .leaflet-container { font-size: 1rem; }
+                .leaflet-control-layers-toggle {
+                    position: relative;
+                    box-sizing: border-box;
+                    width: 112px !important;
+                    height: 44px !important;
+                    padding-left: 48px;
+                    border: 1px solid #6c958d;
+                    border-radius: 6px;
+                    background-color: #f3fbf9;
+                    background-position: 10px 50%;
+                    box-shadow: 0 2px 7px rgba(16, 48, 42, .3);
+                    color: #174b43;
+                    text-decoration: none;
+                }
+                .leaflet-control-layers-toggle::after {
+                    content: "Layers";
+                    display: block;
+                    padding-top: 13px;
+                    font: 700 14px/16px Arial, sans-serif;
+                }
+                .leaflet-control-layers-toggle:hover {
+                    background-color: #dff3ee;
+                    border-color: #27685d;
+                }
+                .leaflet-control-layers-toggle:focus-visible {
+                    outline: 3px solid #f2a900;
+                    outline-offset: 2px;
+                }
             </style>
 
             <style>html, body {

@@ -69,7 +69,7 @@ The comparison form geocodes two submitted addresses in Greece, identifies the m
 | 8. Accessibility audit | pass | Accessibility audit reported no issues and scored 99.
 
 ## Part 3: what I found, and one fix
-Evidence: [Rounds 1 2 and 3 all testers told me to hide all the information. to make the map look cleaner.]
+Evidence: [Rounds 1 2 and 3 all testers told me to hide all the information. to make the map look cleaner. (rid the slider add popover, make the data more visable)]
 Severity: [Severe 3 becasue theres too much information therefore the map is not user friendly have to scroll up to find scroll timelapse]
 My change: [i will create a button that leads to another page that has all the information]
 Recheck: [the same task, given to someone new, with no help.

@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Project Overview | Forest Fires in Greece</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div>
+        <p class="eyebrow">Geog 464 project</p>
+        <h1>Forest Fires in Greece</h1>
+      </div>
+      <nav class="topnav" aria-label="Main navigation">
+        <a href="index.html">Back to map</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container info-page">
+    <section class="info-hero">
+      <p class="eyebrow secondary">Project overview</p>
+      <h2>Understanding fire activity across Greece</h2>
+      <p>
+        This project brings together satellite-detected burned-area perimeters and municipal fire-service totals
+        to show how fire activity varies across space and time in Greece. It is designed to help users compare
+        long-term patterns from Copernicus EFFIS with local municipality reporting from the Greek fire service.
+      </p>
+    </section>
+
+    <section class="feature-grid" aria-label="Project highlights">
+      <article class="feature-card">
+        <p class="feature-kicker">Monitoring</p>
+        <h3>Annual fire trends</h3>
+        <p>Track where burned-area activity increases or declines across Greece using the year-by-year EFFIS record.</p>
+      </article>
+      <article class="feature-card">
+        <p class="feature-kicker">Comparison</p>
+        <h3>Two-address analysis</h3>
+        <p>Compare municipalities for different locations and investigate how local fire totals vary between places.</p>
+      </article>
+      <article class="feature-card">
+        <p class="feature-kicker">Context</p>
+        <h3>Administrative boundaries</h3>
+        <p>Use the Greece municipality layer to connect mapped fire data with official local geography and reporting.</p>
+      </article>
+    </section>
+
+    <section class="info-panel">
+      <div>
+        <h3>What the map shows</h3>
+        <p>
+          The map displays Copernicus EFFIS satellite-mapped burned-area perimeters for Greece from 2006 to 2026.
+          The timeline lets you select a year or view the combined 2006–2026 record. This allows the user to see
+          where fire activity was concentrated and how the distribution changes over time.
+        </p>
+      </div>
+      <div>
+        <h3>How the comparison works</h3>
+        <p>
+          The comparison tool geocodes two addresses in Greece, identifies the municipalities containing them, and
+          compares the reported burned-area totals for 2014–2018. These are municipality totals and should be read as
+          local reporting summaries, not as exact measurements at a single address.
+        </p>
+      </div>
+    </section>
+
+    <section class="info-panel">
+      <div>
+        <h3>Data sources</h3>
+        <ul class="facts">
+          <li>Copernicus EFFIS burned-area perimeters and annual fire estimates, 2006–2026</li>
+          <li>Greek fire-service municipality totals for 2014–2018</li>
+          <li>GeoBoundaries administrative polygons for Greece</li>
+          <li>OpenStreetMap Nominatim for address search and geocoding</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Methodological notes</h3>
+        <p>
+          MODIS and Sentinel-2 derived perimeters may miss smaller fires, and mapped boundaries may combine multiple
+          fire events. The annual totals and perimeter maps are separate measures. The 2026 data is year-to-date and
+          should be interpreted as partial. This project is intended as a visual exploration and comparative dashboard.
+        </p>
+      </div>
+    </section>
+
+    <section class="info-panel">
+      <div>
+        <h3>Project purpose</h3>
+        <p>
+          The goal of the site is to make complex forest-fire data easier to interpret. By combining spatial mapping,
+          temporal analysis, and local comparison tools, it supports a clearer understanding of wildfire patterns in
+          Greece and how they connect to administrative regions.
+        </p>
+      </div>
+      <div class="cta-box">
+        <p class="cta-label">Ready to explore?</p>
+        <a href="index.html" class="primary-link">Open the map</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

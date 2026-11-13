@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const period = document.getElementById('period');
   const coverage = document.getElementById('coverage');
   const method = document.getElementById('method');
-  const yearSlider = document.getElementById('yearSlider');
+  const yearSelectorButton = document.getElementById('yearSelectorButton');
+  const yearDropdown = document.getElementById('yearDropdown');
   const summaryYear = document.getElementById('summaryYear');
   const fireCount = document.getElementById('fireCount');
   const fireCountLabel = document.getElementById('fireCountLabel');
@@ -35,6 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let lastGeocodeRequestAt = 0;
   let comparisonRequestNumber = 0;
   let activeComparison = 0;
+  let currentSelectedYear = 'all';
 
   if (fireMap) {
     fireMap.addEventListener('load', () => {
@@ -205,8 +207,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (data.type === 'selected-year-result') {
-      const allYearsSelected = Number(yearSlider?.value) === Number(yearSlider?.max);
-      if (allYearsSelected ? data.year !== 'all' : Number(data.year) !== Number(yearSlider?.value)) {
+      const allYearsSelected = currentSelectedYear === 'all';
+      if (allYearsSelected ? data.year !== 'all' : Number(data.year) !== Number(currentSelectedYear)) {
         return;
       }
       if (status) {
@@ -421,7 +423,7 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error('Unable to load yearly summary');
       }
       const data = await response.json();
-      if (!data.length || !yearSlider) {
+      if (!data.length) {
         return;
       }
 
@@ -429,11 +431,62 @@ document.addEventListener('DOMContentLoaded', () => {
       const formatArea = value => `${numberFormat.format(Number(value).toFixed(2))} ha`;
       const firstYear = Math.min(...data.map(item => Number(item.year)));
       const lastYear = Math.max(...data.map(item => Number(item.year)));
-      const allYearsValue = lastYear + 1;
+      const allYearsValue = 'all';
       const cumulativeRecord = data.find(item => Number(item.year) === lastYear);
+      const allYearsLabel = `All years (${firstYear}–${lastYear})`;
 
-      const updateSummary = () => {
-        const year = Number(yearSlider.value);
+      if (yearDropdown && yearSelectorButton) {
+        const availableYears = Array.from({ length: lastYear - firstYear + 1 }, (_, index) => firstYear + index).reverse();
+
+        yearDropdown.innerHTML = '';
+        const addOption = (label, value, selected) => {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'year-option';
+          button.dataset.year = String(value);
+          button.textContent = label;
+          if (selected) {
+            button.classList.add('is-selected');
+          }
+          button.addEventListener('click', () => {
+            const selectedValue = String(button.dataset.year);
+            currentSelectedYear = selectedValue;
+            yearSelectorButton.textContent = label;
+            yearSelectorButton.setAttribute('aria-expanded', 'false');
+            yearDropdown.hidden = true;
+            document.querySelectorAll('.year-option').forEach(opt => opt.classList.remove('is-selected'));
+            button.classList.add('is-selected');
+            updateSummary(selectedValue);
+          });
+          yearDropdown.appendChild(button);
+        };
+
+        addOption(allYearsLabel, allYearsValue, true);
+        availableYears.forEach(year => {
+          addOption(String(year), String(year), year === lastYear);
+        });
+
+        yearSelectorButton.addEventListener('click', () => {
+          const isOpen = yearDropdown.hidden;
+          yearDropdown.hidden = !isOpen;
+          yearSelectorButton.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        document.addEventListener('click', event => {
+          const target = event.target;
+          if (!(target instanceof Element)) {
+            return;
+          }
+          if (!yearDropdown.contains(target) && target !== yearSelectorButton) {
+            yearDropdown.hidden = true;
+            yearSelectorButton.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      const updateSummary = (selectedValue) => {
+        const year = selectedValue === allYearsValue ? allYearsValue : Number(selectedValue);
+        currentSelectedYear = selectedValue;
         const allYearsSelected = year === allYearsValue;
         const record = allYearsSelected
           ? cumulativeRecord
@@ -444,11 +497,8 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         if (summaryYear) summaryYear.textContent = allYearsSelected
-          ? `All years (${firstYear}–${lastYear})`
+          ? allYearsLabel
           : String(record.year);
-        yearSlider.setAttribute('aria-valuetext', allYearsSelected
-          ? `All years, ${firstYear} through ${lastYear}`
-          : String(record.year));
         if (fireCount) {
           const count = allYearsSelected
             ? data.reduce((sum, item) => sum + Number(item.fire_count), 0)
@@ -479,11 +529,9 @@ document.addEventListener('DOMContentLoaded', () => {
         showMapYear(allYearsSelected ? 'all' : year);
       };
 
-      yearSlider.min = String(firstYear);
-      yearSlider.max = String(allYearsValue);
-      yearSlider.value = String(lastYear);
-      yearSlider.addEventListener('input', updateSummary);
-      updateSummary();
+      yearSelectorButton.textContent = String(lastYear);
+      yearDropdown.hidden = true;
+      updateSummary(String(lastYear));
     } catch (error) {
       console.error(error);
       if (summaryYear) summaryYear.textContent = 'N/A';

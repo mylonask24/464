@@ -8,40 +8,34 @@
 </head>
 <body>
   <header class="topbar">
-    <div class="container">
-      <p class="eyebrow">Geog 464 project</p>
-      <h1>Forest Fires in Greece</h1>
+    <div class="container topbar-inner">
+      <div>
+        <p class="eyebrow">Geog 464 project</p>
+        <h1>Forest Fires in Greece</h1>
+      </div>
+      <nav class="topnav" aria-label="Main navigation">
+        <a class="topnav-button" href="project_info.html">About</a>
+      </nav>
     </div>
   </header>
 
-  <main class="container">
-    <section class="intro">
-      <div class="text-panel">
-        <p class="lead">
-          Explore annual satellite-mapped burned-area perimeters in Greece and compare
-          municipality-level fire-service totals for two addresses.
-        </p>
-        <ul class="facts">
-          <li>Map and annual timeline: Copernicus EFFIS perimeters, 2006–2026</li>
-          <li>Address comparison: Greek fire-service municipality totals, 2014–2018</li>
-          <li>Boundary source: GeoBoundaries administrative polygons for Greece</li>
-          <li>2026 data is year-to-date and incomplete</li>
-        </ul>
-      </div>
-
-      <aside class="summary-card">
-        <h2>Project status</h2>
-        <p><span class="label">Period:</span> <strong id="period">2006–2026</strong></p>
-        <p><span class="label">Coverage:</span> <strong id="coverage">EFFIS mapped perimeters</strong></p>
-        <p><span class="label">Method:</span> <strong id="method">Satellite imagery</strong></p>
-      </aside>
-    </section>
-
+  <main class="container map-container">
     <section class="map-panel">
       <div class="map-header">
         <h2 id="mapHeading">Satellite-mapped burned areas</h2>
-        <p id="status">Move the year slider to update the map.</p>
+        <p id="status">Choose a year to update the map.</p>
       </div>
+      <div class="map-controls">
+        <button id="resetMapButton" type="button">Reset map view</button>
+        <p id="mapResetStatus" role="status" aria-live="polite"></p>
+      </div>
+      <iframe
+        id="fireMap"
+        src="fire_municipality_map.html"
+        title="Forest Fires in Greece satellite-mapped burned-area perimeters"
+        loading="lazy"
+      ></iframe>
+
       <form id="addressSearchForm" class="address-search" data-geocoder-endpoint="https://nominatim.openstreetmap.org/search">
         <label for="addressInput">Find an address in Greece</label>
         <div class="address-search-controls">
@@ -142,7 +136,7 @@
           </div>
           <p class="timeline-note">
             Select a year to show its satellite-mapped EFFIS burned-area perimeters and national
-            annual estimates. The final slider stop combines 2006–2026 and shows all perimeters.
+            annual estimates, or choose all years to view the combined 2006–2026 record.
             Cumulative annual fire counts are sums, not unique-fire counts. Perimeters and annual
             estimates are separate measures; perimeters do not represent every fire, and 2026 is partial.
           </p>
@@ -154,11 +148,16 @@
         </p>
 
         <div class="slider-wrap">
-          <label for="yearSlider">Selected year</label>
-          <input id="yearSlider" type="range" min="2006" max="2026" step="1" value="2026" />
+          <label>Selected year</label>
+          <div class="year-picker" data-open="false">
+            <button id="yearSelectorButton" type="button" class="year-selector-button" aria-haspopup="true" aria-expanded="false">
+              2026
+            </button>
+            <div id="yearDropdown" class="year-dropdown" hidden></div>
+          </div>
           <div class="year-readout">
             <span id="summaryYear">2026</span>
-            <span class="slider-end-note">Final stop: all years (2006–2026)</span>
+            <span class="slider-end-note">All years available: 2006–2026</span>
           </div>
         </div>
 
@@ -177,16 +176,28 @@
           </div>
         </div>
       </section>
-      <div class="map-controls">
-        <button id="resetMapButton" type="button">Reset map view</button>
-        <p id="mapResetStatus" role="status" aria-live="polite"></p>
+    </section>
+
+    <section class="intro">
+      <div class="text-panel">
+        <p class="lead">
+          Explore annual satellite-mapped burned-area perimeters in Greece and compare
+          municipality-level fire-service totals for two addresses.
+        </p>
+        <ul class="facts">
+          <li>Map and annual timeline: Copernicus EFFIS perimeters, 2006–2026</li>
+          <li>Address comparison: Greek fire-service municipality totals, 2014–2018</li>
+          <li>Boundary source: GeoBoundaries administrative polygons for Greece</li>
+          <li>2026 data is year-to-date and incomplete</li>
+        </ul>
       </div>
-      <iframe
-        id="fireMap"
-        src="fire_municipality_map.html"
-        title="Forest Fires in Greece satellite-mapped burned-area perimeters"
-        loading="lazy"
-      ></iframe>
+
+      <aside class="summary-card">
+        <h2>Project status</h2>
+        <p><span class="label">Period:</span> <strong id="period">2006–2026</strong></p>
+        <p><span class="label">Coverage:</span> <strong id="coverage">EFFIS mapped perimeters</strong></p>
+        <p><span class="label">Method:</span> <strong id="method">Satellite imagery</strong></p>
+      </aside>
     </section>
   </main>
 
