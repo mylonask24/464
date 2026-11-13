@@ -66,4 +66,11 @@ The comparison form geocodes two submitted addresses in Greece, identifies the m
 | 5. The data does not come | pass | Blocked `yearly_fire_summary.json` in DevTools and reloaded; the yearly summary displayed N/A/dashes while the rest of the map remained usable. Unblocked the request afterward. |
 | 6. On a phone (size view and my phone) | pass | Used Chrome DevTools device mode at about 375 px wide and reloaded; all page content and controls fit on screen. |
 | 7. Mouse in my pocket | pass | Used Tab to reach all controls; focus was visible, and Enter/Space activated the focused controls. |
-| 8. Accessibility audit | pass | Accessibility audit reported no issues and scored 99. |
+| 8. Accessibility audit | pass | Accessibility audit reported no issues and scored 99.
+
+## Part 3: what I found, and one fix
+Evidence: [Rounds 1 2 and 3 all testers told me to hide all the information. to make the map look cleaner.]
+Severity: [Severe 3 becasue theres too much information therefore the map is not user friendly have to scroll up to find scroll timelapse]
+My change: [i will create a button that leads to another page that has all the information]
+Recheck: [the same task, given to someone new, with no help.
+          Fixed means: they do it without hesitating at that spot]
